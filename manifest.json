@@ -1,0 +1,134 @@
+{
+  "background_color": "rgb(18, 194, 88)",
+  "description": "Kumpulan Kitab Kuning Lengkap | Aplikasi Islami | Proges Web App Islami Deseign ALHIKMAH.MY.ID",
+  "dir": "auto",
+  "display": "standalone",
+  "name": "alhikmah.my.if",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "alhikmah.my.id",
+  "start_url": "/index.html",
+  "theme_color": "rgb(213, 125, 19)",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/favicon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "https://www.alhikmah.my.id/favicon.ico",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-icon-57x57.png",
+      "sizes": "57x57"
+    },
+    {
+      "src": "/apple-icon-60x60.png",
+      "sizes": "60x60"
+    },
+    {
+      "src": "/apple-icon-72x72.png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "/apple-icon-76x76.png",
+      "sizes": "76x76"
+    },
+    {
+      "src": "/apple-icon-114x114.png",
+      "sizes": "114x114"
+    },
+    {
+      "src": "/apple-icon-120x120.png",
+      "sizes": "120x120"
+    },
+    {
+      "src": "/apple-icon-144x144.png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/apple-icon-152x152.png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "/apple-icon-180x180.png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "/ms-icon-144x144.png"
+    },
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon"
+    }
+  ],
+  "share_target": {
+    "method": "GET",
+    "params": {
+      "url": "https://aikmah.my.id",
+      "text": "ALHIKMAH",
+      "title": "ALHIKMAH",
+      "files": []
+    },
+    "action": "/download "
+  },
+  "categories": [
+    "books",
+    "business",
+    "education",
+    "entertainment",
+    "finance",
+    "fitness",
+    "food",
+    "games",
+    "government",
+    "health",
+    "kids",
+    "lifestyle",
+    "magazines",
+    "medical",
+    "music",
+    "navigation",
+    "news",
+    "personalization",
+    "photo",
+    "politics",
+    "productivity",
+    "security",
+    "shopping",
+    "social",
+    "sports",
+    "travel",
+    "utilities",
+    "weather"
+  ],
+  "lang": "en",
+  "display_override": [
+    "browser",
+    "window-controls-overlay",
+    "standalone",
+    "fullscreen",
+    "minimal-ui"
+  ]
+}
+
