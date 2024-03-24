@@ -39,7 +39,28 @@
 <link href='https://www.alhikmah.my.id/' rel='openid.delgate'/>
 <meta content='width=device-width, initial-scale=1' name='viewport'/>
 <meta content='IE=9; IE=8; IE=7; IE=EDGE; chrome=1' http-equiv='X-UA-Compatible'/>
-<!-- Google tag (gtag.js) -->
+<script>
+    window.requestIdleCallback =
+      window.requestIdleCallback ||
+      function (cb) {
+        var start = Date.now();
+        return setTimeout(function () {
+          cb({
+            didTimeout: false,
+            timeRemaining: function () {
+              return Math.max(0, 50 - (Date.now() - start));
+            }
+          });
+        }, 1);
+      }
+
+    window.cancelIdleCallback =
+      window.cancelIdleCallback ||
+      function (id) {
+        clearTimeout(id);
+      }
+  </script>
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-27HVEMDXPP"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
