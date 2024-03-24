@@ -1,5 +1,7 @@
 {
-  "background_color": "rgb(18, 194, 88)",
+  "id": "/",
+  "dir": "ltr",
+  "lang": "en",
   "description": "Kumpulan Kitab Kuning Lengkap | Aplikasi Islami | Proges Web App Islami Deseign ALHIKMAH.MY.ID",
   "dir": "auto",
   "display": "standalone",
@@ -8,7 +10,19 @@
   "scope": "/",
   "short_name": "alhikmah.my.id",
   "start_url": "/index.html",
-  "theme_color": "rgb(213, 125, 19)",
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "screenshots": [
+    {
+      "src": "assets/screen.png"
+    },
+    {
+      "src": "assets/screen.png"
+    },
+    {
+      "src": "assets/screen.png"
+    }
+  ],
   "icons": [
     {
       "src": "/favicon.ico",
@@ -129,6 +143,20 @@
     "standalone",
     "fullscreen",
     "minimal-ui"
+  ],
+  
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "edge_side_panel": {},
+  
+  "shortcuts": [
+    {
+      "name": "ALHIKMAH",
+      "url": "https://www.alhikmah.my.id",
+      "description": "ALHIKMAH"
+    }
   ]
 }
+
 
