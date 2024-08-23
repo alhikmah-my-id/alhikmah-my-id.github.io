@@ -1,4 +1,5 @@
 # ISLAMI 
+[![CodeQL](https://github.com/alhikmah-my-id/alhikmah-my-id.github.io/actions/workflows/codeql.yml/badge.svg)](https://github.com/alhikmah-my-id/alhikmah-my-id.github.io/actions/workflows/codeql.yml)
 
 [Get Started](https://wahyu9kdl.github.io/islami/index.html)
 
