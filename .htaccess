@@ -1,2 +1,4 @@
 Options +ExecCGI
 AddHandler cgi-script .sh
+ErrorDocument 404 https://alhikmah.my.id/
+
