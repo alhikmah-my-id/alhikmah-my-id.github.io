@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengalihkan... - Al-Hikmah</title>
+    
+    <!-- Langsung dialihkan ke home page tanpa jeda waktu (0 detik) -->
+    <meta http-equiv="refresh" content="0;url=https://alhikmah.my.id">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 450px;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid #1b4d3e;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #1b4d3e;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .btn-home {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1b4d3e;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Efek loading halus sebelum halaman berpindah -->
+        <div class="loader"></div>
+        
+        <h1>Menuju Beranda Al-Hikmah</h1>
+        <p>Halaman tidak ditemukan. Anda sedang dialihkan kembali ke halaman utama...</p>
+        
+        <a href="https://alhikmah.my.id" class="btn-home">Klik di sini jika tidak berpindah</a>
+    </div>
+
+    <script>
+        // Pengalihan instan menggunakan JavaScript sebagai cadangan utama
+        window.location.href = "https://alhikmah.my.id";
+    </script>
+
+</body>
+</html>
