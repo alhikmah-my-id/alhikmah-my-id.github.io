@@ -1,0 +1,17 @@
+User-agent: Mediapartners-Google
+Disallow: 
+
+User-agent: *
+Disallow: /search
+Allow: /
+
+Sitemap: https://alhikmah-my-id.github.io/sitemap.xml
+Sitemap: https://alhikmah.my.id/sitemap.xml
+Sitemap: https://app.alhikmah.my.id/sitemap.xml
+Sitemap: https://www.alhikmah.my.id/sitemap.xml
+Sitemap: https://www.alhikmah.my.id/atom.xml
+Sitemap: https://www.alhikmah.my.id/rss.xml
+Sitemap: https://www.alhikmah.my.id/sitemap-pages.xml
+Sitemap: https://alhikmah-web.blogspot.com/sitemap.xml
+
+
