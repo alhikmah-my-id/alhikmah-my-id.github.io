@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kompas Kiblat Otomatis - Fitur Kota & GPS</title>
+
+<meta name="description" content="Kompas Kiblat Otomatis Lengkap Fitur Kota dan GPS Real Times" />
+<style>
+
+:root {
+    --bg-color: #121824;
+    --card-bg: #1e293b;
+    --text-color: #f8fafc;
+    --accent-color: #10b981;
+    --control-bg: #334155;
+    --border-color: #475569;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.container {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0 0 15px 0;
+    color: var(--accent-color);
+}
+
+.selector-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    font-size: 12px;
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+select, button.btn-gps {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--control-bg);
+    color: var(--text-color);
+    font-size: 14px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+button.btn-gps {
+    background: #2563eb;
+    border: none;
+    font-weight: bold;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+button.btn-gps:hover {
+    opacity: 0.9;
+}
+
+.status {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 15px 0;
+    min-height: 38px;
+    line-height: 1.4;
+}
+
+.compass-wrapper {
+    position: relative;
+    width: 270px;
+    height: 270px;
+    margin: 0 auto 20px auto;
+}
+
+.compass {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 8px solid #334155;
+    position: relative;
+    background: #0f172a;
+    transition: transform 0.1s ease-out;
+}
+
+.direction {
+    position: absolute;
+    font-weight: bold;
+    font-size: 16px;
+}
+.north { top: 12px; left: 50%; transform: translateX(-50%); color: #ef4444; }
+.south { bottom: 12px; left: 50%; transform: translateX(-50%); }
+.east { right: 12px; top: 50%; transform: translateY(-50%); }
+.west { left: 12px; top: 50%; transform: translateY(-50%); }
+
+.qibla-needle-group {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 125px;
+    transform-origin: 50% 100%; 
+    transform: translate(-50%, -100%) rotate(0deg);
+    z-index: 10;
+}
+
+.qibla-arrow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 85px;
+    background: var(--accent-color);
+    clip-path: polygon(50% 0%, 100% 20%, 65% 20%, 65% 100%, 35% 100%, 35% 20%, 0% 20%);
+}
+
+.kaaba-icon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 28px;
+    background-color: #1a1a1a;
+    border: 2px solid #fbbf24;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
+}
+
+.kaaba-icon::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #fbbf24;
+}
+
+.kaaba-icon::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 12px;
+    background-color: #fbbf24;
+    border-radius: 1px 1px 0 0;
+}
+
+.center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 12;
+    box-shadow: 0 0 6px rgba(0,0,0,0.6);
+}
+
+.info-panel {
+    background: #0f172a;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+.info-panel span {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.btn-permission {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+    width: 100%;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Kompas Kiblat</h1>
+
+<div class="selector-group">
+<label for="citySelect">PILIH ACUAN KOTA (Atau gunakan GPS):</label>
+<select id="citySelect" onchange="handleCityChange()">
+    <option value="gps">📡 Gunakan Lokasi GPS Sekarang</option>
+    <option value="-6.2088,106.8456" selected>Jakarta</option>
+    <option value="-7.2575,112.7521">Surabaya</option>
+    <option value="-6.9175,107.6191">Bandung</option>
+    <option value="-7.7956,110.3695">Yogyakarta</option>
+    <option value="-7.0051,110.4381">Semarang</option>
+    <option value="3.5952,98.6722">Medan</option>
+    <option value="-0.9471,100.4172">Padang</option>
+    <option value="-2.9909,104.7566">Palembang</option>
+    <option value="-5.1476,119.4327">Makassar</option>
+    <option value="-3.3167,114.5900">Banjarmasin</option>
+    <option value="-1.2654,116.8312">Balikpapan</option>
+    <option value="-8.6705,115.2126">Denpasar</option>
+    <option value="-3.6547,128.1906">Ambon</option>
+    <option value="-2.5337,140.7181">Jayapura</option>
+</select>
+<button id="btnGpsRefresh" class="btn-gps" onclick="getLocationGPS()">🔄 Segarkan Lokasi Sekarang (GPS)</button>
+</div>
+
+<div class="status" id="statusText">Menginisialisasi sistem...</div>
+
+<div class="compass-wrapper">
+<div class="compass" id="compassRing">
+    <div class="direction north">N</div>
+    <div class="direction east">E</div>
+    <div class="direction south">S</div>
+    <div class="direction west">W</div>
+    
+    <div class="qibla-needle-group" id="qiblaGroup">
+        <div class="kaaba-icon"></div>
+        <div class="qibla-arrow"></div>
+    </div>
+    
+    <div class="center-dot"></div>
+</div>
+</div>
+
+<div class="info-panel">
+Sudut Kiblat: <span id="qiblaDegree">0°</span> dari Utara
+</div>
+
+<button id="btnPermission" class="btn-permission" style="display: none;" onclick="requestPermission()">Aktifkan Kalibrasi Kompas HP</button>
+</div>
+
+<script>
+const KAABA_LAT = 21.4225241;
+const KAABA_LNG = 39.8261818;
+
+let qiblaDirection = 0;
+let isUsingGPS = false;
+
+// Mulai otomatis saat dokumen siap
+document.addEventListener("DOMContentLoaded", () => {
+// Otomatis mencoba memanggil lokasi sekarang (GPS) saat pertama kali dibuka
+getLocationGPS();
+initSensor();
+});
+
+// 1. Fungsi Mengambil Lokasi Sekarang (GPS)
+function getLocationGPS() {
+document.getElementById('statusText').innerText = "Meminta akses GPS lokasi sekarang...";
+document.getElementById('citySelect').value = "gps";
+
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            isUsingGPS = true;
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            
+            updateQiblaByCoordinates(lat, lng);
+            document.getElementById('statusText').innerText = `📡 Terkunci pada GPS Anda:\n[Lat: ${lat.toFixed(4)}, Lng: ${lng.toFixed(4)}]`;
+        },
+        (error) => {
+            isUsingGPS = false;
+            document.getElementById('statusText').innerText = "Akses GPS ditolak/gagal. Menggunakan acuan manual Kota Jakarta.";
+            document.getElementById('citySelect').value = "-6.2088,106.8456"; // pindah ke Jakarta
+            handleCityChange();
+        },
+        { enableHighAccuracy: true, timeout: 8000 }
+    );
+} else {
+    document.getElementById('statusText').innerText = "Browser Anda tidak mendukung Geolocation. Silakan pilih Kota secara manual.";
+    document.getElementById('citySelect').value = "-6.2088,106.8456";
+    handleCityChange();
+}
+}
+
+// 2. Fungsi Mengubah Lokasi via Dropdown Pilihan Kota
+function handleCityChange() {
+const selectValue = document.getElementById('citySelect').value;
+
+if (selectValue === "gps") {
+    getLocationGPS();
+} else {
+    isUsingGPS = false;
+    const [latStr, lngStr] = selectValue.split(',');
+    const lat = parseFloat(latStr);
+    const lng = parseFloat(lngStr);
+    const cityName = document.getElementById('citySelect').options[document.getElementById('citySelect'].selectedIndex].text;
+    
+    updateQiblaByCoordinates(lat, lng);
+    document.getElementById('statusText').innerText = `Menggunakan acuan posisi manual: Kota ${cityName}`;
+}
+}
+
+// 3. Update Sudut Putaran Jarum Kiblat
+function updateQiblaByCoordinates(lat, lng) {
+qiblaDirection = calculateQibla(lat, lng);
+document.getElementById('qiblaDegree').innerText = qiblaDirection.toFixed(1) + '°';
+document.getElementById('qiblaGroup').style.transform = `translate(-50%, -100%) rotate(${qiblaDirection}deg)`;
+}
+
+// 4. Rumus Hitung Sudut Keblat (Bearing Matematika)
+function calculateQibla(lat, lng) {
+const phiU = lat * Math.PI / 180;
+const lambdaU = lng * Math.PI / 180;
+const phiK = KAABA_LAT * Math.PI / 180;
+const lambdaK = KAABA_LNG * Math.PI / 180;
+
+const deltaLambda = lambdaK - lambdaU;
+const y = Math.sin(deltaLambda);
+const x = Math.cos(phiU) * Math.tan(phiK) - Math.sin(phiU) * Math.cos(deltaLambda);
+
+let qibla = Math.atan2(y, x) * 180 / Math.PI;
+return (qibla + 360) % 360;
+}
+
+// 5. Inisialisasi Sensor Hadap HP (Kompas Internal Perangkat)
+function initSensor() {
+if (window.DeviceOrientationEvent) {
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        document.getElementById('btnPermission').style.display = 'block';
+    } else {
+        window.addEventListener('deviceorientation', handleOrientation);
+    }
+}
+}
+
+function requestPermission() {
+DeviceOrientationEvent.requestPermission()
+    .then(response => {
+        if (response == 'granted') {
+            window.addEventListener('deviceorientation', handleOrientation);
+            document.getElementById('btnPermission').style.display = 'none';
+        } else {
+            alert("Izin sensor ditolak. Piringan kompas tidak bisa menyesuaikan hadap HP secara otomatis.");
+        }
+    })
+    .catch(console.error);
+}
+
+function handleOrientation(event) {
+let heading = event.alpha; 
+if (event.webkitCompassHeading) {
+    heading = event.webkitCompassHeading; // Untuk iOS Safari
+}
+
+if (heading !== null && heading !== undefined) {
+    const compassDegree = -heading;
+    document.getElementById('compassRing').style.transform = `rotate(${compassDegree}deg)`;
+}
+}
+</script>
+
+</body>
+</html>
+
