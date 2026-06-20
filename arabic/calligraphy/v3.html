@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabic Calligraphy Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Aref+Ruqaa&family=Cairo&family=Changa&family=El+Messiri&family=Kufam&family=Lateef&family=Mada&family=Reem+Kufi&family=Scheherazade+New&family=Tajawal&family=Almarai&family=Blaka&family=Marhey&family=Noto+Naskh+Arabic&family=Alexandria&family=Lemonada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <style>
+        /* Font Family Mapping */
+        .f-thuluth { font-family: 'Scheherazade New', serif; }
+        .f-naskh { font-family: 'Amiri', serif; }
+        .f-ruqaa { font-family: 'Aref Ruqaa', serif; }
+        .f-kufi { font-family: 'Reem Kufi', sans-serif; }
+        .f-diwani { font-family: 'Lateef', serif; }
+        .f-cairo { font-family: 'Cairo', sans-serif; }
+        .f-changa { font-family: 'Changa', sans-serif; }
+        .f-messiri { font-family: 'El Messiri', sans-serif; }
+        .f-kufam { font-family: 'Kufam', sans-serif; }
+        .f-mada { font-family: 'Mada', sans-serif; }
+        .f-tajawal { font-family: 'Tajawal', sans-serif; }
+        .f-almarai { font-family: 'Almarai', sans-serif; }
+        .f-blaka { font-family: 'Blaka', display; }
+        .f-marhey { font-family: 'Marhey', display; }
+        .f-notonaskh { font-family: 'Noto Naskh Arabic', serif; }
+        .f-alexandria { font-family: 'Alexandria', sans-serif; }
+        .f-lemonada { font-family: 'Lemonada', cursive; }
+        
+        canvas { transition: all 0.2s ease; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-extrabold text-indigo-900 mb-2">Arabic Calligraphy</h1>
+            <p class="text-slate-600">Design studio with 17 beautiful Arabic fonts, history states, and advanced export formats.</p>
+            
+            <div class="flex justify-center gap-3 mt-6">
+                <button onclick="undo()" class="bg-white border border-slate-200 hover:bg-slate-50 px-4 py-2 rounded-xl shadow-sm text-sm font-bold flex items-center gap-2 transition disabled:opacity-40" id="undoBtn" disabled>
+                    <i class="fas fa-undo text-indigo-600"></i> Undo
+                </button>
+                <button onclick="redo()" class="bg-white border border-slate-200 hover:bg-slate-50 px-4 py-2 rounded-xl shadow-sm text-sm font-bold flex items-center gap-2 transition disabled:opacity-40" id="redoBtn" disabled>
+                    <i class="fas fa-redo text-indigo-600"></i> Redo
+                </button>
+                <button onclick="randomGenerator()" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-6 py-2 rounded-xl shadow-md text-sm font-bold flex items-center gap-2 transition">
+                    <i class="fas fa-wand-magic-sparkles"></i> Magic Generator
+                </button>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-1 space-y-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2">English → Arabic Translation</label>
+                    <div class="flex gap-2 mb-3">
+                        <input type="text" id="englishInput" placeholder="Type English phrase..." class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-indigo-500">
+                        <button onclick="translateText()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-xs font-bold transition">Translate</button>
+                    </div>
+                    
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Arabic Text (Supports Multiline)</label>
+                    <textarea id="arabicInput" rows="2" dir="rtl" class="w-full px-3 py-2 border border-slate-300 rounded-lg font-naskh text-xl focus:outline-indigo-500">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</textarea>
+                </div>
+
+                <hr class="border-slate-100">
+
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Calligraphy Font Style (17 Fonts)</label>
+                    <select id="fontStyle" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm bg-slate-50 focus:outline-indigo-500">
+                        <optgroup label="Classical Calligraphy">
+                            <option value="f-naskh" selected>1. Naskh (Amiri)</option>
+                            <option value="f-thuluth">2. Thuluth (Scheherazade)</option>
+                            <option value="f-ruqaa">3. Ruqaa (Aref Ruqaa)</option>
+                            <option value="f-kufi">4. Kufi (Reem Kufi)</option>
+                            <option value="f-diwani">5. Diwani (Lateef)</option>
+                            <option value="f-notonaskh">6. Quranic Style (Noto Naskh)</option>
+                        </optgroup>
+                        <optgroup label="Modern & Sans-Serif">
+                            <option value="f-cairo">7. Cairo</option>
+                            <option value="f-tajawal">8. Tajawal</option>
+                            <option value="f-almarai">9. Almarai</option>
+                            <option value="f-alexandria">10. Alexandria</option>
+                            <option value="f-mada">11. Mada</option>
+                        </optgroup>
+                        <optgroup label="Artistic & Decorative">
+                            <option value="f-changa">12. Changa</option>
+                            <option value="f-messiri">13. El Messiri</option>
+                            <option value="f-kufam">14. Kufam Graphic</option>
+                            <option value="f-blaka">15. Blaka Kufic Art</option>
+                            <option value="f-marhey">16. Marhey Playful</option>
+                            <option value="f-lemonada">17. Lemonada Script</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">Font Size (px)</label>
+                        <input type="number" id="fontSize" value="60" min="20" max="200" class="w-full px-3 py-1.5 border rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">Line Height</label>
+                        <input type="number" id="lineHeight" value="1.4" step="0.1" min="1" max="3" class="w-full px-3 py-1.5 border rounded-lg text-sm">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">Text Color</label>
+                        <input type="color" id="textColor" value="#1e293b" class="w-full h-10 rounded-lg cursor-pointer border p-1">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">Canvas Background</label>
+                        <input type="color" id="bgColor" value="#ffffff" class="w-full h-10 rounded-lg cursor-pointer border p-1">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 flex justify-between mb-1">
+                        <span>Canvas Rotation</span>
+                        <span id="rotVal" class="text-indigo-600">0°</span>
+                    </label>
+                    <input type="range" id="rotation" min="-180" max="180" value="0" class="w-full accent-indigo-600">
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 space-y-6">
+                <div class="bg-slate-200 p-4 rounded-3xl flex justify-center items-center min-h-[460px] border-4 border-white shadow-inner overflow-auto">
+                    <canvas id="calligraphyCanvas" class="max-w-full h-auto shadow-2xl rounded-xl bg-white"></canvas>
+                </div>
+
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+                    <h3 class="text-xs font-bold text-slate-400 tracking-wider uppercase mb-3 text-center">Export Dashboard</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <button onclick="download('png')" class="flex flex-col items-center justify-center p-4 bg-slate-50 hover:bg-indigo-50 border border-slate-100 hover:border-indigo-200 rounded-2xl transition group">
+                            <i class="fas fa-file-image text-indigo-500 text-2xl group-hover:scale-110 transition duration-200 mb-2"></i>
+                            <span class="text-xs font-bold text-slate-700">Download PNG</span>
+                        </button>
+                        <button onclick="download('jpg')" class="flex flex-col items-center justify-center p-4 bg-slate-50 hover:bg-amber-50 border border-slate-100 hover:border-amber-200 rounded-2xl transition group">
+                            <i class="fas fa-image text-amber-500 text-2xl group-hover:scale-110 transition duration-200 mb-2"></i>
+                            <span class="text-xs font-bold text-slate-700">Download JPG</span>
+                        </button>
+                        <button onclick="downloadPDF()" class="flex flex-col items-center justify-center p-4 bg-slate-50 hover:bg-rose-50 border border-slate-100 hover:border-rose-200 rounded-2xl transition group">
+                            <i class="fas fa-file-pdf text-rose-500 text-2xl group-hover:scale-110 transition duration-200 mb-2"></i>
+                            <span class="text-xs font-bold text-slate-700">Download PDF</span>
+                        </button>
+                        <button onclick="downloadDocs()" class="flex flex-col items-center justify-center p-4 bg-slate-50 hover:bg-blue-50 border border-slate-100 hover:border-blue-200 rounded-2xl transition group">
+                            <i class="fas fa-file-word text-blue-500 text-2xl group-hover:scale-110 transition duration-200 mb-2"></i>
+                            <span class="text-xs font-bold text-slate-700">Download DOCS</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('calligraphyCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Undo Redo State History
+        let history = [];
+        let redoStack = [];
+        const maxHistory = 25;
+
+        const monitoredInputs = [
+            'arabicInput', 'fontStyle', 'fontSize', 'lineHeight', 
+            'textColor', 'bgColor', 'rotation'
+        ];
+
+        // Capture snapshot state
+        function saveState() {
+            const currentState = {};
+            monitoredInputs.forEach(id => {
+                currentState[id] = document.getElementById(id).value;
+            });
+            
+            if (history.length > 0) {
+                const previousState = history[history.length - 1];
+                if (JSON.stringify(previousState) === JSON.stringify(currentState)) return;
+            }
+
+            history.push(currentState);
+            if (history.length > maxHistory) history.shift();
+            redoStack = []; // Break down forward stack upon fresh user mutations
+            updateUndoRedoUI();
+        }
+
+        function applyState(state) {
+            monitoredInputs.forEach(id => {
+                document.getElementById(id).value = state[id];
+            });
+            renderCanvas();
+        }
+
+        function undo() {
+            if (history.length <= 1) return;
+            redoStack.push(history.pop());
+            applyState(history[history.length - 1]);
+            updateUndoRedoUI();
+        }
+
+        function redo() {
+            if (redoStack.length === 0) return;
+            const state = redoStack.pop();
+            history.push(state);
+            applyState(state);
+            updateUndoRedoUI();
+        }
+
+        function updateUndoRedoUI() {
+            document.getElementById('undoBtn').disabled = history.length <= 1;
+            document.getElementById('redoBtn').disabled = redoStack.length === 0;
+        }
+
+        // Magic Randomized Generator Engine
+        function randomGenerator() {
+            const fontOptions = [
+                'f-naskh', 'f-thuluth', 'f-ruqaa', 'f-kufi', 'f-diwani', 'f-notonaskh',
+                'f-cairo', 'f-tajawal', 'f-almarai', 'f-alexandria', 'f-mada', 
+                'f-changa', 'f-messiri', 'f-kufam', 'f-blaka', 'f-marhey', 'f-lemonada'
+            ];
+            const premiumColors = ['#0f172a', '#1e3a8a', '#581c87', '#034f1b', '#7c2d12', '#991b1b', '#065f46'];
+            const elegantBgs = ['#ffffff', '#fafaf9', '#f8fafc', '#fffbeb', '#f0fdf4', '#f5f3ff'];
+
+            document.getElementById('fontStyle').value = fontOptions[Math.floor(Math.random() * fontOptions.length)];
+            document.getElementById('textColor').value = premiumColors[Math.floor(Math.random() * premiumColors.length)];
+            document.getElementById('bgColor').value = elegantBgs[Math.floor(Math.random() * elegantBgs.length)];
+            document.getElementById('fontSize').value = Math.floor(Math.random() * (95 - 45) + 45);
+            document.getElementById('rotation').value = Math.floor(Math.random() * 16) - 8; // Slight sophisticated angles
+            
+            saveState();
+            renderCanvas();
+        }
+
+        // Canvas Painter Engine
+        function renderCanvas() {
+            canvas.width = 800;
+            canvas.height = 500;
+
+            const bg = document.getElementById('bgColor').value;
+            const text = document.getElementById('arabicInput').value;
+            const color = document.getElementById('textColor').value;
+            const size = parseFloat(document.getElementById('fontSize').value) || 50;
+            const space = parseFloat(document.getElementById('lineHeight').value) || 1.4;
+            const angle = parseInt(document.getElementById('rotation').value) || 0;
+            
+            const dropdown = document.getElementById('fontStyle');
+            const chosenFontName = dropdown.options[dropdown.selectedIndex].text;
+
+            // Apply Backing Background Fill
+            ctx.fillStyle = bg;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Match Dynamic System Fonts
+            let parsedFont = 'Amiri';
+            if(chosenFontName.includes('Thuluth')) parsedFont = 'Scheherazade New';
+            else if(chosenFontName.includes('Ruqaa')) parsedFont = 'Aref Ruqaa';
+            else if(chosenFontName.includes('Kufi (Reem')) parsedFont = 'Reem Kufi';
+            else if(chosenFontName.includes('Diwani')) parsedFont = 'Lateef';
+            else if(chosenFontName.includes('Noto Naskh')) parsedFont = 'Noto Naskh Arabic';
+            else if(chosenFontName.includes('Cairo')) parsedFont = 'Cairo';
+            else if(chosenFontName.includes('Tajawal')) parsedFont = 'Tajawal';
+            else if(chosenFontName.includes('Almarai')) parsedFont = 'Almarai';
+            else if(chosenFontName.includes('Alexandria')) parsedFont = 'Alexandria';
+            else if(chosenFontName.includes('Mada')) parsedFont = 'Mada';
+            else if(chosenFontName.includes('Changa')) parsedFont = 'Changa';
+            else if(chosenFontName.includes('Messiri')) parsedFont = 'El Messiri';
+            else if(chosenFontName.includes('Kufam')) parsedFont = 'Kufam';
+            else if(chosenFontName.includes('Blaka')) parsedFont = 'Blaka';
+            else if(chosenFontName.includes('Marhey')) parsedFont = 'Marhey';
+            else if(chosenFontName.includes('Lemonada')) parsedFont = 'Lemonada';
+
+            ctx.font = `${size}px "${parsedFont}", serif`;
+            ctx.fillStyle = color;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            // Pivot Transformation Coordinate Matrix
+            ctx.save();
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+            ctx.rotate((angle * Math.PI) / 180);
+
+            // Multiline Array Mapping Calculations
+            const segmentLines = text.split('\n');
+            const spacingY = size * space;
+            const fullYBoundingBox = (segmentLines.length - 1) * spacingY;
+
+            segmentLines.forEach((line, index) => {
+                const currentY = (index * spacingY) - (fullYBoundingBox / 2);
+                ctx.fillText(line, 0, currentY);
+            });
+            ctx.restore();
+
+            document.getElementById('rotVal').innerText = angle + '°';
+        }
+
+        // Exporters
+        function download(extension) {
+            const link = document.createElement('a');
+            link.download = `calligraphy-art.${extension}`;
+            link.href = canvas.toDataURL(extension === 'png' ? 'image/png' : 'image/jpeg', 1.0);
+            link.click();
+        }
+
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const pdfDoc = new jsPDF('landscape', 'px', [800, 500]);
+            const imageBlob = canvas.toDataURL('image/png');
+            pdfDoc.addImage(imageBlob, 'PNG', 0, 0, 800, 500);
+            pdfDoc.save("calligraphy-art.pdf");
+        }
+
+        function downloadDocs() {
+            const base64Img = canvas.toDataURL('image/png');
+            const docTemplate = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+                <head><meta charset='utf-8'></head>
+                <body style="font-family: Arial, sans-serif; text-align: center; padding: 20px;">
+                    <h2>Arabic Calligraphy Production Workspace</h2>
+                    <hr/>
+                    <div style="margin-top: 20px;">
+                        <img src="${base64Img}" width="650" style="border: 1px solid #ccc; max-width:100%;" />
+                    </div>
+                </body>
+                </html>`;
+            
+            const outputBlobUri = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(docTemplate);
+            const anchor = document.createElement('a');
+            anchor.href = outputBlobUri;
+            anchor.download = 'calligraphy-document.doc';
+            anchor.click();
+        }
+
+        // Machine Translate System Integration
+        async function translateText() {
+            const inputField = document.getElementById('englishInput');
+            if (!inputField.value.trim()) return;
+            try {
+                const query = encodeURIComponent(inputField.value);
+                const networkResponse = await fetch(`https://api.mymemory.translated.net/get?q=${query}&langpair=en|ar`);
+                const parsedJSON = await networkResponse.json();
+                if(parsedJSON.responseData) {
+                    document.getElementById('arabicInput').value = parsedJSON.responseData.translatedText;
+                    saveState();
+                    renderCanvas();
+                }
+            } catch (err) {
+                alert("Translation pipeline timeout. Please type direct Arabic scripts.");
+            }
+        }
+
+        // System Core Init Listeners 
+        monitoredInputs.forEach(id => {
+            const el = document.getElementById(id);
+            el.addEventListener('change', () => { saveState(); renderCanvas(); });
+            if(id !== 'arabicInput' && id !== 'fontStyle') {
+                el.addEventListener('input', renderCanvas);
+            }
+        });
+
+        window.onload = () => {
+            saveState();
+            // A brief timeout helps browsers render customized web fonts fully prior to initial paint drawing.
+            setTimeout(renderCanvas, 1000);
+        };
+    </script>
+</body>
+</html>
