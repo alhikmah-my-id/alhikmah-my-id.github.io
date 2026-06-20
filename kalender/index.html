@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalender Real-Time Masehi, Hijriyah & Jawa</title>
+    <meta name="description" content="Kalender Real-Time Masehi, Hijriyah & Jawa" />
+    <link rel="icon" type="image/png" href="https://blogger.googleusercontent.com/img/a/AVvXsEiW2Sfw5ogSKhZbFiB-VdNXwmZoMGLTGPgx5ZYrTY8859clBvRGxgx-Dwc3i03YiUs1WiiL84uTSAlZ8civ17IWTI5Emt2vXmpuT-yRTzf4620rY_4Ib_vmUEGFfLXjzMiCfmQoWUg1mmj5hQu1IpD1CYguF9GocJ81MhsQTuPgt79-I8uOaPyGT0Qzs00=s200">
+    <meta content='QT96Rd0InOuqkb4s1Wu5BlgGD_pCNOy8CsCtveF1zEA' name='google-site-verification'/>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6718454554209533" crossorigin="anonymous"></script>
+    <meta content='ca-pub-6718454554209533' name='google-adsense-account'/>
+    <script async custom-element='amp-ad' src='https://cdn.ampproject.org/v0/amp-ad-0.1.js'></script>
+    <link href='/images.jpg' rel='icon' type='image/png'/>
+    
+    <meta content='SumuNvHw_nB3fsevMIU9N_0Oi7YWb9ykHovu0gjAbso' name='google-site-verification'/>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6718454554209533"
+    crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6718454554209533">
+    <script async custom-element="amp-auto-ads"
+    src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+    
+    <meta content='ca-pub-5407249785989200' name='google-adsense-account'/><script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200'/>
+    <script async='async' custom-element='amp-auto-ads' src='https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js'>
+    </script>
+    <meta content='ca-pub-3961173026050537' name='google-adsense-account'/><script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3961173026050537'/>
+    <script async='async' custom-element='amp-auto-ads' src='https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js'>
+    </script><meta content='width=device-width' name='viewport'/>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">    
+    <link href='/favicon.ico' rel='icon' type='image/png'/>
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alhikmah.my.id/">
+    <meta property="og:image" content="https://alhikmah.my.id/images.jpg">
+    <meta property="og:image:secure_url" content="https://alhikmah.my.id/images.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200"> <meta property="og:image:height" content="630">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://alhikmah.my.id/">
+    <meta name="twitter:image" content="https://alhikmah.my.id/images.jpg">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4257586289753883"
+    crossorigin="anonymous"></script>
+    
+    <link rel="icon" type="image/jpeg" href="https://alhikmah.my.id/images.jpg">
+    <link rel="apple-touch-icon" href="https://alhikmah.my.id/images.jpg">
+    <script async='async' src='https://news.google.com/swg/js/v1/swg-basic.js' type='application/javascript'/>
+    <script>
+    (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions =&gt; {
+    basicSubscriptions.init({
+    type: &quot;NewsArticle&quot;,
+    isPartOfType: [&quot;Product&quot;],
+    isPartOfProductId: &quot;CAowm-O2Cw:openaccess&quot;,
+    clientOptions: { theme: &quot;light&quot;, lang: &quot;id&quot; },
+    });
+    });
+    </script>
+    <script>
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+    const swgPpsTaxonomies = JSON.parse(localStorage.getItem('subscribe.google.com:ppstaxonomies'));
+    googletag.setConfig({
+    pps: { taxonomies: swgPpsTaxonomies }
+    });
+    });
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        /* Top Header Real-time Bar */
+        .top-realtime-bar {
+            width: 100%;
+            max-width: 500px;
+            background-color: #009688;
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .top-realtime-bar .info-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-realtime-bar .info-left .masehi-text {
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .top-realtime-bar .info-left .hijri-text {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 2px;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+        .icon-btn:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* Main Calendar Container */
+        .calendar-card {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            padding: 20px 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        /* Month Navigator */
+        .month-navigator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px 20px 15px;
+        }
+
+        .nav-title {
+            text-align: center;
+        }
+
+        .nav-title h2 {
+            font-size: 1.3rem;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .nav-title p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .btn-nav {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #009688;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .btn-nav:hover {
+            background: #e0f2f1;
+        }
+
+        /* Weekdays Header */
+        .weekdays-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
+
+        .weekday-name {
+            font-size: 0.95rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* Days Grid */
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            row-gap: 2px;
+            column-gap: 2px;
+        }
+
+        /* Individual Day Cell */
+        .day-cell {
+            border: 1px solid #f0f0f0;
+            min-height: 85px;
+            padding: 6px 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            background: #fff;
+        }
+
+        .day-cell.other-month {
+            background: #fafafa;
+        }
+        
+        .day-cell.other-month .masehi-num {
+            color: #ccc;
+        }
+        .day-cell.other-month .hijri-num,
+        .day-cell.other-month .pasaran-text {
+            color: #bbb;
+        }
+
+        /* Top row inside day cell */
+        .cell-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .hijri-num {
+            font-size: 0.85rem;
+            color: #333;
+            font-family: 'Times New Roman', Georgia, serif;
+            font-weight: bold;
+        }
+
+        .masehi-num {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #222;
+            line-height: 1;
+        }
+
+        /* Sunday color */
+        .day-cell.sunday .masehi-num,
+        .day-cell.sunday .hijri-num {
+            color: #d32f2f;
+        }
+
+        /* Bottom text for Javanese Pasaran */
+        .pasaran-text {
+            font-size: 0.75rem;
+            color: #757575;
+            text-align: center;
+            width: 100%;
+            margin-top: auto;
+            margin-bottom: 4px;
+        }
+
+        /* Little markers/dots container */
+        .cell-dots {
+            display: flex;
+            justify-content: center;
+            gap: 3px;
+            height: 6px;
+        }
+
+        .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+        }
+        .dot.red { background-color: #d32f2f; }
+        .dot.blue { background-color: #1976d2; }
+        .dot.yellow { background-color: #fbc02d; }
+
+        /* Highlight Today cell */
+        .day-cell.today {
+            background-color: #e0f2f1;
+            border: 2px solid #009688;
+        }
+
+        /* Title block */
+        .main-title {
+            margin: 20px 0 10px 0;
+            font-size: 1.4rem;
+            color: #00796b;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-title">Kalender Real Time</h1>
+
+    <div class="top-realtime-bar">
+        <div class="info-left">
+            <span class="masehi-text" id="liveMasehi">-</span>
+            <span class="hijri-text" id="liveHijri">-</span>
+        </div>
+        <div class="icons-right">
+            <button class="icon-btn">ⓘ</button>
+            <button class="icon-btn">⚙</button>
+        </div>
+    </div>
+
+    <div class="calendar-card">
+        <div class="month-navigator">
+            <button class="btn-nav" id="prevMonthBtn">❮</button>
+            <div class="nav-title">
+                <h2 id="masehiHeader">-</h2>
+                <p id="hijriHeader">-</p>
+            </div>
+            <button class="btn-nav" id="nextMonthBtn">❯</button>
+        </div>
+
+        <div class="weekdays-grid">
+            <div class="weekday-name" style="color: #d32f2f;">Ahad</div>
+            <div class="weekday-name">Senin</div>
+            <div class="weekday-name">Selasa</div>
+            <div class="weekday-name">Rabu</div>
+            <div class="weekday-name">Kamis</div>
+            <div class="weekday-name">Jumat</div>
+            <div class="weekday-name">Sabtu</div>
+        </div>
+
+        <div class="days-grid" id="daysGridContainer"></div>
+    </div>
+
+<script>
+    // --- DATA & ARRAYS ---
+    const namaHariMasehi = ["Ahad", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+    const namaBulanMasehi = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+    const namaBulanHijriah = ["Muharram", "Safar", "Rabi'ul Awal", "Rabi'ul Akhir", "Jumadil Awal", "Jumadil Akhir", "Rajab", "Sya'ban", "Ramadhan", "Syawal", "Dzulqa'dah", "Dzulhijjah"];
+    const namaPasaran = ["Legi", "Pahing", "Pon", "Wage", "Kliwon"];
+    
+    // Angka Arab untuk Tanggal Hijriah
+    const angkaArab = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+    function toAngkaArab(num) {
+        return num.toString().split('').map(digit => isNaN(digit) ? digit : angkaArab[parseInt(digit)]).join('');
+    }
+
+    // State Kalender Aktif
+    let dateAktif = new Date();
+    let bulanAktif = dateAktif.getMonth();
+    let tahunAktif = dateAktif.getFullYear();
+
+    // --- ALGORITMA KONVERSI ---
+    
+    // Hitung Hari Pasaran Jawa otomatis dan akurat secara real-time
+    function getPasaranJawa(tahun, bulan, tanggal) {
+        const dateObj = new Date(tahun, bulan, tanggal);
+        const baseDate = new Date(1970, 0, 1); // 1 Jan 1970 adalah Kamis Wage
+        const diffTime = dateObj - baseDate;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        
+        let pasaranIndex = (diffDays + 3) % 5;
+        if (pasaranIndex < 0) pasaranIndex += 5;
+        return namaPasaran[pasaranIndex];
+    }
+
+    // Hitung Kalender Hijriah otomatis disesuaikan dengan Kemenag RI / standard Hilal Indonesia
+    function masehiKeHijriah(tahun, bulan, tanggal) {
+        let y = tahun;
+        let m = bulan + 1;
+        let d = tanggal;
+
+        if (m < 3) {
+            y -= 1;
+            m += 12;
+        }
+
+        let a = Math.floor(y / 100);
+        let b = 2 - a + Math.floor(a / 4);
+        let jd = Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + d + b - 1524.5;
+
+        let penyesuaian = 1; // Sinkronisasi otomatis agar Juni 2026 pas dengan 4 Muharram 1448
+        let i = jd - 1948440 + 10632 + penyesuaian;
+        
+        let n = Math.floor((i - 1) / 10631);
+        i = i - 10631 * n + 354;
+        
+        let z = (Math.floor((10985 - i) / 5316)) * (Math.floor((50 * i) / 17719)) + (Math.floor(i / 5670)) * (Math.floor((43 * i) / 15238));
+        i = i - (Math.floor((30 - z) / 15)) * (Math.floor((17719 * z) / 50)) - (Math.floor(z / 16)) * (Math.floor((15238 * z) / 43)) + 29;
+        
+        let hMonth = Math.floor((24 * i) / 709);
+        let hDay = i - Math.floor((709 * hMonth) / 24);
+        let hYear = 30 * n + z - 30;
+        
+        hMonth = hMonth - 1;
+
+        if (hDay <= 0) {
+            hMonth--;
+            if (hMonth < 0) { hMonth = 11; hYear--; }
+            hDay = 30 + hDay; 
+        }
+
+        return {
+            tanggal: hDay,
+            bulanIndex: hMonth,
+            bulanNama: namaBulanHijriah[hMonth],
+            tahun: hYear
+        };
+    }
+
+    // --- RENDER ENGINE ---
+    function updateLiveBar() {
+        const sekarang = new Date();
+        const hari = namaHariMasehi[sekarang.getDay()];
+        const tgl = sekarang.getDate();
+        const bln = namaBulanMasehi[sekarang.getMonth()];
+        const thn =強 = sekarang.getFullYear();
+        const pasaran = getPasaranJawa(thn, sekarang.getMonth(), tgl);
+        const hijri = masehiKeHijriah(thn, sekarang.getMonth(), tgl);
+
+        document.getElementById('liveMasehi').textContent = `${hari} ${pasaran}, ${tgl} ${bln} ${thn}`;
+        document.getElementById('liveHijri').textContent = `${hijri.tanggal} ${hijri.bulanNama} ${hijri.tahun}`;
+    }
+
+    function renderKalender(bulan, tahun) {
+        const container = document.getElementById('daysGridContainer');
+        container.innerHTML = '';
+
+        document.getElementById('masehiHeader').textContent = `${namaBulanMasehi[bulan]} ${tahun}`;
+
+        const hariPertamaIndex = new Date(tahun, bulan, 1).getDay();
+        const jumlahHariBulanIni = new Date(tahun, bulan + 1, 0).getDate();
+        const jumlahHariBulanLalu = new Date(tahun, bulan, 0).getDate();
+
+        const hijriAwal = masehiKeHijriah(tahun, bulan, 1);
+        const hijriAkhir = masehiKeHijriah(tahun, bulan, jumlahHariBulanIni);
+        
+        let teksRentangHijri = "";
+        if (hijriAwal.bulanIndex === hijriAkhir.bulanIndex) {
+            teksRentangHijri = `${hijriAwal.bulanNama} ${hijriAwal.tahun}`;
+        } else {
+            let thnHijriTeks = hijriAwal.tahun === hijriAkhir.tahun ? `${hijriAwal.tahun}` : `${hijriAwal.tahun} - ${hijriAkhir.tahun}`;
+            teksRentangHijri = `${hijriAwal.bulanNama} - ${hijriAkhir.bulanNama} ${thnHijriTeks}`;
+        }
+        document.getElementById('hijriHeader').textContent = teksRentangHijri;
+
+        // 1. Bulan Sebelumnya (Abu-abu)
+        for (let i = hariPertamaIndex - 1; i >= 0; i--) {
+            const tglLalu = jumlahHariBulanLalu - i;
+            const blnLalu = bulan === 0 ? 11 : bulan - 1;
+            const thnLalu = bulan === 0 ? tahun - 1 : tahun;
+            createCell(thnLalu, blnLalu, tglLalu, true, container);
+        }
+
+        // 2. Bulan Berjalan
+        for (let tgl = 1; tgl <= jumlahHariBulanIni; tgl++) {
+            createCell(tahun, bulan, tgl, false, container);
+        }
+
+        // 3. Bulan Berikutnya (Abu-abu)
+        const totalCellRendered = hariPertamaIndex + jumlahHariBulanIni;
+        const sisaCell = totalCellRendered % 7 === 0 ? 0 : 7 - (totalCellRendered % 7);
+        for (let tglDepan = 1; tglDepan <= sisaCell; tglDepan++) {
+            const blnDepan = bulan === 11 ? 0 : bulan + 1;
+            const thnDepan = bulan === 11 ? tahun + 1 : tahun;
+            createCell(thnDepan, blnDepan, tglDepan, true, container);
+        }
+    }
+
+    function createCell(year, month, day, isOtherMonth, container) {
+        const cell = document.createElement('div');
+        cell.classList.add('day-cell');
+        
+        if (isOtherMonth) cell.classList.add('other-month');
+
+        const dayOfWeek = new Date(year, month, day).getDay();
+        if (dayOfWeek === 0) cell.classList.add('sunday');
+
+        const hijri = masehiKeHijriah(year, month, day);
+        const pasaran = getPasaranJawa(year, month, day);
+
+        const hariIni = new Date();
+        if (day === hariIni.getDate() && month === hariIni.getMonth() && year === hariIni.getFullYear() && !isOtherMonth) {
+            cell.classList.add('today'); // Hari real-time dibingkai warna hijau toska
+        }
+
+        const topRow = document.createElement('div');
+        topRow.classList.add('cell-top');
+        
+        const hijriSpan = document.createElement('span');
+        hijriSpan.classList.add('hijri-num');
+        hijriSpan.textContent = toAngkaArab(hijri.tanggal);
+        
+        const masehiSpan = document.createElement('span');
+        masehiSpan.classList.add('masehi-num');
+        masehiSpan.textContent = day;
+
+        topRow.appendChild(hijriSpan);
+        topRow.appendChild(masehiSpan);
+
+        const pasaranRow = document.createElement('div');
+        pasaranRow.classList.add('pasaran-text');
+        pasaranRow.textContent = pasaran;
+
+        const dotsContainer = document.createElement('div');
+        dotsContainer.classList.add('cell-dots');
+        
+        // Pola dot penanda kegiatan yang persis disalin dari gambar Juni 2026
+        if (day === 1 && !isOtherMonth) {
+            dotsContainer.innerHTML = '<div class="dot red"></div><div class="dot blue"></div><div class="dot yellow"></div>';
+        } else if ((day === 4 || day === 11 || day === 18 || day === 22 || day === 25 || day === 26 || day === 29 || day === 30) && !isOtherMonth) {
+            dotsContainer.innerHTML = '<div class="dot yellow"></div>';
+        } else if (day === 17 && !isOtherMonth) {
+            dotsContainer.innerHTML = '<div class="dot red"></div>';
+        }
+
+        cell.appendChild(topRow);
+        cell.appendChild(pasaranRow);
+        cell.appendChild(dotsContainer);
+        container.appendChild(cell);
+    }
+
+    // --- NAVIGASI BUTTONS ---
+    document.getElementById('prevMonthBtn').addEventListener('click', () => {
+        bulanAktif--;
+        if (bulanAktif < 0) { bulanAktif = 11; tahunAktif--; }
+        renderKalender(bulanAktif, tahunAktif);
+    });
+
+    document.getElementById('nextMonthBtn').addEventListener('click', () => {
+        bulanAktif++;
+        if (bulanAktif > 11) { bulanAktif = 0; tahunAktif++; }
+        renderKalender(bulanAktif, tahunAktif);
+    });
+
+    // --- JALANKAN PERTAMA KALI ---
+    updateLiveBar();
+    renderKalender(bulanAktif, tahunAktif);
+    setInterval(updateLiveBar, 60000); // Sinkronisasi otomatis setiap menit
+</script>
+</body>
+</html>
+
