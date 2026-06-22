@@ -1,5 +1,8 @@
 # 🕋 Al-Hikmah Digital Platform
 
+<p align="center">
+  <img src="https://alhikmah.my.id/images.jpg" alt="Al-Hikmah Logo" width="200px">
+</p>
 Selamat datang di repositori resmi untuk **[alhikmah.my.id](https://alhikmah.my.id/)**. Proyek ini didekasikan untuk menyediakan berbagai perkakas digital, layanan keagamaan Islam, serta utilitas produktivitas berbasis web yang responsif dan mudah diakses oleh masyarakat luas, khususnya lingkungan pesantren.
 
 🔗 **Repository:** [alhikmah-my-id.github.io](https://github.com/alhikmah-my-id/alhikmah-my-id.github.io.git)  
@@ -7,12 +10,14 @@ Selamat datang di repositori resmi untuk **[alhikmah.my.id](https://alhikmah.my.
 
 ---
 
+
 ## 🧭 Navigasi & Fitur Utama
 
 Situs ini menyediakan ekosistem layanan digital terpadu yang dapat diakses langsung melalui tautan berikut:
 
 *   ✍️ **[Arabic Pegon](https://alhikmah.my.id/arabic/pesantren/nd/)** – Sistem penulisan dan konversi aksara Arab Pegon untuk kebutuhan literasi pesantren.
 *   ✒️ **[Arabic Calligraphy Pro](https://alhikmah.my.id/arabic/calligraphy/pro)** – Generator dan editor kaligrafi Arab berbasis vektor (CorelDRAW Style Canvas).
+    *   🎥 *Tonton demo visual:* **[Calligraphy Video Guide](https://alhikmah.my.id/arabic/pesantren/nd/caligraphy/caligraphy.mp4)**
 *   📅 **[Kalender](https://alhikmah.my.id/kalender/)** – Sistem penanggalan multi-konversi (Masehi, Hijriah, dan Jawa).
 *   ⏱️ **[Timer Jadwal Sholat](https://alhikmah.my.id/jadwal-sholat/)** – Pengingat otomatis dan penunjuk waktu salat fardu secara *real-time*.
 *   🎧 **[Murotal 30 Juz](https://alhikmah.my.id/alquran-player/v6.html)** – Pemutar audio Al-Qur'an digital interaktif lengkap 30 Juz.
@@ -20,11 +25,18 @@ Situs ini menyediakan ekosistem layanan digital terpadu yang dapat diakses langs
 *   💼 **[WebOffice Suite](https://alhikmah.my.id/WebOffice/)** – Alat produktivitas perkantoran berbasis web terintegrasi.
 *   📚 **[Khazanah Kitab & Teks Referensi](https://alhikmah.my.id/khazanah/)** – Kajian teks, terjemahan, dan panduan keilmuan Islam bersumber dari literatur klasik terpercaya.
 
+
 ---
 
-## 📚 Khazanah Kitab & Teks Referensi
+## 🎬 Calligraphy Preview & Tutorial
 
-Bagian ini memuat kompilasi teks keagamaan, artikel ilmiah, dan perpustakaan digital interaktif untuk menunjang kajian literatur klasik (Kitab Kuning) yang bersumber dari pemikiran para Ulama berdasarkan Al-Qur'an, As-Sunnah, Ijma', dan Qiyas.
+
+<p align="center">
+  <video src="https://alhikmah.my.id/arabic/pesantren/nd/caligraphy/caligraphy.mp4" width="100%" max-width="600px" autoplay loop muted playsinline></video>
+</p>
+
+
+---
 
 ### 📌 Kumpulan Kitab Kuning Lengkap
 Daftar modul digital teks kitab yang tersedia di platform kami:
