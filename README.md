@@ -30,11 +30,9 @@ Situs ini menyediakan ekosistem layanan digital terpadu yang dapat diakses langs
 
 ## 🎬 Calligraphy Preview & Tutorial
 
-
 <p align="center">
-  <video src="https://alhikmah.my.id/arabic/pesantren/nd/caligraphy/caligraphy.mp4" width="100%" max-width="600px" autoplay loop muted playsinline></video>
+  <video src="https://alhikmah.my.id/arabic/pesantren/nd/caligraphy/caligraphy.mp4" width="600" autoplay loop muted playsinline controls></video>
 </p>
-
 
 ---
 
@@ -99,9 +97,7 @@ Pilih paket langganan berkala yang sesuai dengan kebutuhan Anda:
 2. **Bagaimana cara berlangganan via PayPal?**  
    Klik tombol gambar PayPal di atas, Anda akan diarahkan ke laman pembayaran resmi. Pilih paket kontribusi yang Anda inginkan, lalu konfirmasi pembayaran.  
 
-3. **Apakah transaksi ini aman?**  
-   Sangat aman. Semua transaksi diproses secara langsung melalui jaringan *blockchain* Ethereum resmi atau gerbang pembayaran PayPal. Server Al-Hikmah tidak menyimpan data finansial atau informasi rahasia apa pun.
+
 </details>
 
 ---
-
