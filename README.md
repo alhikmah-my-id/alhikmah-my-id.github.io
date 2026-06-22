@@ -1,120 +1,103 @@
-# ISLAMI 
+# 🕋 Al-Hikmah Digital Platform
 
-[Get Started](https://wahyu9kdl.github.io/islami/index.html)
+Selamat datang di repositori resmi untuk **[alhikmah.my.id](https://alhikmah.my.id/)**. Proyek ini didekasikan untuk menyediakan berbagai perkakas digital, layanan keagamaan Islam, serta utilitas produktivitas berbasis web yang responsif dan mudah diakses oleh masyarakat luas, khususnya lingkungan pesantren.
 
-بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+🔗 **Repository:** [alhikmah-my-id.github.io](https://github.com/alhikmah-my-id/alhikmah-my-id.github.io.git)  
+🌐 **Live Website:** [https://alhikmah.my.id](https://alhikmah.my.id/)
 
+---
 
-الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+## 🧭 Navigasi & Fitur Utama
 
+Situs ini menyediakan ekosistem layanan digital terpadu yang dapat diakses langsung melalui tautan berikut:
 
-الرَّحْمَٰنِ الرَّحِيمِ
+*   ✍️ **[Arabic Pegon](https://alhikmah.my.id/arabic/pesantren/nd/)** – Sistem penulisan dan konversi aksara Arab Pegon untuk kebutuhan literasi pesantren.
+*   ✒️ **[Arabic Calligraphy Pro](https://alhikmah.my.id/arabic/calligraphy/pro)** – Generator dan editor kaligrafi Arab berbasis vektor (CorelDRAW Style Canvas).
+*   📅 **[Kalender](https://alhikmah.my.id/kalender/)** – Sistem penanggalan multi-konversi (Masehi, Hijriah, dan Jawa).
+*   ⏱️ **[Timer Jadwal Sholat](https://alhikmah.my.id/jadwal-sholat/)** – Pengingat otomatis dan penunjuk waktu salat fardu secara *real-time*.
+*   🎧 **[Murotal 30 Juz](https://alhikmah.my.id/alquran-player/v6.html)** – Pemutar audio Al-Qur'an digital interaktif lengkap 30 Juz.
+*   📖 **[Alqur'an Digital](https://alhikmah.my.id/alquran-player/)** – Mushaf Al-Qur'an digital portable untuk kemudahan membaca di mana saja.
+*   💼 **[WebOffice Suite](https://alhikmah.my.id/WebOffice/)** – Alat produktivitas perkantoran berbasis web terintegrasi.
+*   📚 **[Khazanah Kitab & Teks Referensi](https://alhikmah.my.id/khazanah/)** – Kajian teks, terjemahan, dan panduan keilmuan Islam bersumber dari literatur klasik terpercaya.
 
+---
 
-مَالِكِ يَوْمِ الدِّينِ
+## 📚 Khazanah Kitab & Teks Referensi
 
+Bagian ini memuat kompilasi teks keagamaan, artikel ilmiah, dan perpustakaan digital interaktif untuk menunjang kajian literatur klasik (Kitab Kuning) yang bersumber dari pemikiran para Ulama berdasarkan Al-Qur'an, As-Sunnah, Ijma', dan Qiyas.
 
-إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+### 📌 Kumpulan Kitab Kuning Lengkap
+Daftar modul digital teks kitab yang tersedia di platform kami:
 
+| | | |
+| --- | --- | --- |
+| 📖 Adabul Alim Wal Muta'alim | 📖 Al-Muwatta Imam Malik | 📖 Al-Hikam Ibnu Athaillah |
+| 📖 Alfiyah Ibnu Malik | 📖 Amtsilah Tashrif | 📖 Aqidatul Awam |
+| 📖 Arbain Nawawi | 📖 Bidayatul Hidayah | 📖 Bulughul Maram |
+| 📖 Fathul Izar | 📖 Fathul Qorib | 📖 Futuhul Ghaib |
+| 📖 Jurumiyah | 📖 Matan Sanusiyah | 📖 Nadhom Imriti |
+| 📖 Nashoihul Ibad | 📖 Qurrotul Uyun | 📖 Riyadhus Shalihin |
+| 📖 Safinatun Najah | 📖 Shahih Muslim | 📖 Shahih Bukhari |
+| 📖 Sirrul Asror | 📖 Tafsir Jalalain | 📖 Ta'lim Muta'alim |
+| 📖 Tuhfatul Athfal | 📖 Uqudulujain | 📖 Washoya |
+| 📖 Adzkar | 📖 Kumpulan Sholawat Lengkap | |
 
-اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ
+---
 
+## 🚀 Dukung Proyek Ini
 
-صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
+Jika Anda merasa platform dan alat yang kami sediakan bermanfaat, Anda dapat berkontribusi untuk membantu biaya operasional server dan pengembangan fitur baru melalui metode di bawah ini.
 
-Islam adalah menjalankan syari’at junjungan kita Gusti Nabi Muhammad saw dengan anggauta dzahir (anggaauta badan).kita, dengan cara mengikuti apa yang dijalankannya dan menta’ati apa yang diperintahkannya.Dan Iman adalah kepercayan hati kita pada apa yang telah difirmankan Allah swt kepada Gusti Nabi Muhammad saw (kalamullah) dan yang disabdakan oleh Gusti Nabi Muhammad saw sendiri (hadits).
+### 🪙 Wallet Ethereum (Crypto)
+Scan QR berikut menggunakan MetaMask, TrustWallet, atau Rainbow untuk mengirim donasi:
 
-Barang siapa yang telah bersifat Islam, maka ia dinamakan muslim, dan siapa yang yang bersifat Iman, maka ia dinamai orang m’umin. Dan sesungguhnya islam dan iman itu tidak dapat dipisahkan.
+![QR Ethereum](https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=ethereum:0xd8519A8b8825Aa0DcC73aAD572f447FAE102fe88)
 
-[Baca Artikel Islami di ALHIKMAH.MY.ID](https://www.alhikmah.my.id)
+Atau salin alamat dompet resmi kami:  
+`0xd8519A8b8825Aa0DcC73aAD572f447FAE102fe88`  
 
-[ Iqro' ] Pelajaran Islami dari beberapa kitab Islami yang Termuat dalam Kitab - Kitab Kuning Berikut ini.
+🔗 [Buka Tracker di Etherscan](https://etherscan.io/address/0xd8519A8b8825Aa0DcC73aAD572f447FAE102fe88)
 
-[Mulai Pelajaran ](https://wahyu9kdl.github.io/islami/)
+---
 
-# Abstrak
-Kitab kuning selalu identik dengan dunia pesantren Nusantara. Kitab kuning yang diajarkan di pesantren mencakup beragam cabang-cabang ilmu keislaman, termasuk hadis. Selama ini porsi terbesar dalam pengajian-pengajian kitab kuning adalah pada bidang fikihdan akhlak karena dua bidang inilah yang langsung memberikan pemahaman jelas pada pengamalan-pengamalan sehari-hari. Di sisi lain, kitab kuning tidak terbatas hanya pada dua bidang studi tersebut, ada juga bidang hadis yang menjadi topik utama pada artikel ini. Hadis masih kalah popular dengan disiplin ilmu keislaman lain karena membutuhkan pengetahuan seperangkat ilmu-ilmu penunjang, pemahaman yang tinggi dan tidak serta-merta langsung dengan mudah bisa diamalkan. Inilah yang menjadikan perkembangan studi hadis di nusantara agak lebih belakangan dibandinkan bidang lainnya. Artikel ini berusaha untuk melacak penelitian-penelitian yang telah dilakukan terhadap kitab-kitab kuning di pesantren dan memilah-milahnya untuk menentukan kitab-kitab dalam bidang hadis. Dengan demikian bisa diketahui kitab-kitab hadis apa saja yang biasa diajarkan di pesantren.
+### 💳 Langganan Layanan (PayPal)
 
-# Kitab Kuning
+Pilih paket langganan berkala yang sesuai dengan kebutuhan Anda:  
 
-- Kitab kuning, dalam pendidikan agama Islam, merujuk kepada kitab-kitab tradisional yang berisi pelajaran-pelajaran agama Islam yang diajarkan pada pondok-pondok Pesantren, mulai dari fiqh, aqidah, akhlaq, tata bahasa arab, hadits, tafsir, ilmu Al-Qur'an, hingga pada ilmu sosial dan kemasyarakatan. Wikipedia
-- Kitab kuning adalah kitab yang memuat hukum-hukum ibadah, mu'alamalah, nikah, akhlaq, tafsir, sejarah, hadits, sastra Arab, dan lain-lain. Kitab kuning merupakan hasil pemikiran para Ulama yang di ambil referensinya dari Al-Qur'an, As-Sunnah, Ijma', dan Qiyas.
+[![Subscribe via PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JZ8YZT9LM257A)
 
-- Secara keseluruhan, fungsi kitab ini yaitu sebagai tuntunan dalam menjalankan ibadah sehari-hari bagi umat muslim agar sesuai syariat-syariat Islam.
+📌 **Daftar Paket Tersedia:**  
 
+| Nama Paket | Kontribusi | Durasi / Siklus |
+| :--- | :--- | :--- |
+| **Subscribe** | \$5 | Mingguan |
+| **Premium** | \$25 | Bulanan |
+| **Golden** | \$100 | Tahunan |
 
-# Sejarah
+---
 
-- Kebanyakan naskah para ulama pasca Khulafaa al-Rasyidin ditulis dengan menggunakan Bahasa Arab tanpa harakat, tidak seperti Al-Qur'an pada umumnya. Dikarenakan tujuan pemberian harakat pada Al-Quran lebih kepada bantuan bagi orang-orang non arab dan penyeragaman. Sedangkan bagi orang yang menguasai tata bahasa bahasa Arab maka dapat dengan mudah membaca kalimat tanpa harakat tersebut. Inilah yang kemudian di Indonesia dikenal sebagai Kitab Gundul untuk membedakannya dengan kitab bertulisan dengan harakat.
+## 📌 Informasi Tambahan
 
-- Sedangkan mengenai penyebutan istilah sebagai Kitab kuning, dikarenakan memang kitab-kitab tersebut kertasnya berwarna kuning, hal ini disebabkan warna kuning dianggap lebih nyaman dan mudah dibaca dalam keadaan yang redup. Ketika penerangan masih terbatas pada masa lampau, utamanya di desa-desa, para santri terbiasa belajar di malam hari dengan pencahayaan seadanya. Meski penerangan kini telah mudah, kitab-kitab ini sebagian tetap diproduksi menggunakan kertas warna kuning mengikuti tradisi, walaupun ada juga yang telah dicetak pada kertas berwarna putih (HVS). Sebab lainnya, adalah karena umur kertas yang telah kuno yang turut membuat kertas semakin lama akan menguning dan menjadi lebih gelap secara alami, juga disebutkan ketika dahulu lilin/lampu belum bercahaya putih dan masih kuning maka kertas berwarna putih atau kuning sama saja akan tetap terlihat kuning, sehingga ketika kertas kuning dahulu lebih ekonomis maka penggunaan kertas kuning dapat meringankan ongkos produksi secara massal. Kini pada era modern Kitab-kitab tersebut telah dialih berkaskan menjadi fail buku elektronik, misalnya chm atau pdf. Ada juga software komputer dalam penggunaan kitab-kitab ini yaitu Maktabah Syamila (Shameela) yang juga mulai populer digunakan dikalangan para santri pondok pesantren modern.
+<details>
+<summary>💡 FAQ / Cara Donasi (Klik untuk membuka)</summary>
 
-- Clifford Geertz seorang ahli antropologi dari Amerika Serikat dalam bukunya yang terkenal berjudul "Abangan, Santri, Priyayi Dalam Masyarakat Jawa" (judul aslinya The Religion of Java)[1] memuat sekelumit ceria tentang kitab kuning. Ada pula buku karangan peneliti Belanda Martin van Bruinessen yang berjudul "Kitab Kuning, Pesantren, dan Tarekat",[2] yang membahas sejarah kitab kuning dan pendidikan Islam tradisional di Indonesia.
-# Daftar Isi Kitab Kuning dan Terjemahan
+1. **Bagaimana cara melakukan scan QR Code Ethereum?**  
+   Buka aplikasi Crypto Wallet Anda (seperti MetaMask atau TrustWallet), pilih opsi *Scan*, arahkan kamera ke kode QR di atas, lalu masukkan nominal yang ingin Anda kirimkan.  
 
-![kitab.png](kitab.png)
+2. **Bagaimana cara berlangganan via PayPal?**  
+   Klik tombol gambar PayPal di atas, Anda akan diarahkan ke laman pembayaran resmi. Pilih paket kontribusi yang Anda inginkan, lalu konfirmasi pembayaran.  
 
-### [KUMPULAN KITAB KUNING LENGKAP](https://wahyu9kdl.github.io/islami/index.html)
-- [Adabul Alim Wal Muta'alim](https://wahyu9kdl.github.io/islami/ada )
-- [Al-Muwatta Imam Malik](https://wahyu9kdl.github.io/islami/muwatta)
-- [Al-Hikam Ibnu Athaillah](https://wahyu9kdl.github.io/islami/alhikam)
-- [Alfiyah Ibnu Malik](https://wahyu9kdl.github.io/islami/alfiyah/alfiyah.html)
-- [Amtsilah Tashrif](https://wahyu9kdl.github.io/islami/amsilah)
-- [Aqidatul Awam](https://wahyu9kdl.github.io/islami/aqidatul)
-- [Arbain Nawawi](https://wahyu9kdl.github.io/islami/arbain)
-- [Bidayatul Hidayah](https://wahyu9kdl.github.io/islami/bidayatul)
-- [Bulughul Maram](https://wahyu9kdl.github.io/islami/bulughul)
-- [Fathul Izar](https://wahyu9kdl.github.io/islami/izar)
-- [Fathul Qorib](https://wahyu9kdl.github.io/islami/qarib)
-- [Futuhul Ghaib](https://wahyu9kdl.github.io/islami/futuhul)
-- [Jurumiyah](https://wahyu9kdl.github.io/islami/jurumiyah)
-- [Matan Sanusiyah](https://wahyu9kdl.github.io/islami/sanusiyah)
-- [Nadhom Imriti](https://wahyu9kdl.github.io/islami/imriti)
-- [Nashoihul Ibad](https://wahyu9kdl.github.io/islami/nashoihul)
-- [Qurrotul Uyun](https://wahyu9kdl.github.io/islami/uyun)
-- [Riyadhus Shalihin](https://wahyu9kdl.github.io/islami/riyadhus)
-- [Safinatun Najah](https://wahyu9kdl.github.io/islami/safinah/safinah.html)
-- [Shahih Muslim](https://wahyu9kdl.github.io/islami/muslim)
-- [Shahih Bukhari](https://wahyu9kdl.github.io/islami/bukhari)
-- [Sirrul Asror](https://wahyu9kdl.github.io/islami/sirul)
-- [Tafsir Jalalain](https://wahyu9kdl.github.io/islami/jalalain)
-- [Ta'lim Muta'alim](https://wahyu9kdl.github.io/islami/taklim)
-- [Tuhfatul Athfal](https://wahyu9kdl.github.io/islami/tuhfatu)
-- [Uqudulujain](https://wahyu9kdl.github.io/islami/uqudulujain)
-- [Washoya](https://wahyu9kdl.github.io/islami/waso)
-- [Kumpulan Sholawat Lengkap](https://wahyu9kdl.github.io/islami/sholawat/)
-- [Adzkar](https://wahyu9kdl.github.io/islami/adzkar/)
-- [Arabic Keyboard](https://wahyu9kdl.github.io/islami/arabic/index.html)
-- [LICENSE](https://wahyu9kdl.github.io/islami/LICENSE)
-- [FAQ](https://wahyu9kdl.github.io/faq.html)
-- [Download Aplikasi](https://wahyu9kdl.github.io/islami/app/ngologat.apk)
-# Version
-Versi Tampilan Home Page Kitab Kuning dan Terjemahan
-- [Version I](/index.html) non AMP - [VIEW](https://wahyu9kdl.github.io/islami/index.html)
-- [Version II](/v1.html) non AMP - [VIEW](https://wahyu9kdl.github.io/islami/v1.html)
-- [Version III](/amp.html) AMP 1⚡- [VIEW](https://wahyu9kdl.github.io/islami/islami/amp.html)
-- [Version IV](/versi-amp.html) AMP ⚡- [VIEW](https://wahyu9kdl.github.io/islami/versi-amp.html)
+3. **Apakah transaksi ini aman?**  
+   Sangat aman. Semua transaksi diproses secara langsung melalui jaringan *blockchain* Ethereum resmi atau gerbang pembayaran PayPal. Server Al-Hikmah tidak menyimpan data finansial atau informasi rahasia apa pun.
+</details>
 
-## INSTAL
+---
 
-HTTP/HTTPS + git
-```
-https://github.com/wahyu9kdl/islami.git
-```
-GITHUB CLI
-```
-gh repo clone wahyu9kdl/islami
-```
-### DOWNLOAD 
- 
-[⬇️ DOWNLOAD ZIP](https://github.com/wahyu9kdl/islami/archive/refs/heads/main.zip)
- 
-[⬇️ DOWNLOAD APK](https://wahyu9kdl.github.io/islami/app/ngologat.apk)
+## 🔗 Tautan Eksternal Terkait
+*   [Thirdweb Project Platform](https://thirdweb.com/)  
+*   [Ethereum Blockchain Explorer](https://etherscan.io/)  
+*   [Supabase Backend Service](https://supabase.com/)  
 
-# Redaksi
+---
 
-- [wahyu9kdl](https://wahyu9kdl.github.io)
-- [Redaksi Alhikmah](https://www.alhikmah.my.id)
-- [AL HIKMAH](https://wahyu9kdl.github.io/AL-HIKMAH)
-- [AWDEV](https://www.awdev.my.id)
-- [AWDEV CORPORATION](https://www.awdev.eu.org)
+> ⚠️ **Catatan Keamanan:** Demi menjaga keamanan proyek, jangan pernah menyertakan *private key*, *secret key*, atau kredensial API sensitif apa pun di dalam berkas `README.md` ini maupun di dalam repositori publik.
