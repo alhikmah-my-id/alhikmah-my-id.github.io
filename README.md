@@ -93,11 +93,3 @@ Pilih paket langganan berkala yang sesuai dengan kebutuhan Anda:
 
 ---
 
-## 🔗 Tautan Eksternal Terkait
-*   [Thirdweb Project Platform](https://thirdweb.com/)  
-*   [Ethereum Blockchain Explorer](https://etherscan.io/)  
-*   [Supabase Backend Service](https://supabase.com/)  
-
----
-
-> ⚠️ **Catatan Keamanan:** Demi menjaga keamanan proyek, jangan pernah menyertakan *private key*, *secret key*, atau kredensial API sensitif apa pun di dalam berkas `README.md` ini maupun di dalam repositori publik.
