@@ -1,0 +1,43 @@
+# ==========================================
+# NEWSPEC: Alhikmah Multi-Language Project
+# Version: 1.0.0
+# Date: 2026-06-24
+# ==========================================
+
+[project]
+name = "alhikmah-core-service"
+description = "Sistem layanan multi-bahasa dan automasi data untuk alhikmah.my.id"
+version = "1.0.0"
+environment = "production"
+
+[architecture]
+frontend = "GitHub Pages (Static HTML/Markdown)"
+backend_services = ["Go", "Ruby", "C", "C++", "C#"]
+automation_tool = "Python 3.x"
+
+[source_control]
+repository = "https://github.com/alhikmah-my-id/alhikmah-my-id.github.io.git"
+primary_branch = "main"
+
+# Spesifikasi Target & Peran Setiap File Kode
+[spec_manifest]
+"scraper.py"   = { language = "Python", role = "Scraping data & monitoring konten live dari https://alhikmah.my.id/" }
+"main.go"      = { language = "Go", role = "High-performance API service / microservice untuk data Alhikmah" }
+"app.rb"       = { language = "Ruby", role = "Automasi internal, pemrosesan teks, atau script deployment" }
+"program.c"    = { language = "C", role = "Core utility level rendah untuk optimalisasi memori dan kecepatan" }
+"main.cpp"     = { language = "C++", role = "Pemrosesan data struktural atau komputasi intensif" }
+"Program.cs"   = { language = "C#", role = "Integrasi enterprise system atau backend berbasis .NET" }
+"config.toml"  = { format = "TOML", role = "Pusat konfigurasi parameter situs dan repositori global" }
+
+[deployment_pipeline]
+trigger = "Git Push / Webhook"
+build_steps = [
+    "Python mendeteksi perubahan halaman web lokal",
+    "Kompilasi service Go dan C++ untuk sistem produksi",
+    "Pembaruan otomatis konten statis ke GitHub Pages"
+]
+
+[performance_targets]
+max_scraping_timeout_seconds = 5
+cache_ttl_hours = 24
+allowed_http_status_codes = [200, 301, 302]
