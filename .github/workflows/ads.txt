@@ -1,0 +1,21 @@
+site: alhikmah.my.id
+ads_txt_entries:
+  - domain: "google.com"
+    publisher_id: "pub-6718454554209533"
+    relationship: "DIRECT"
+    certification_id: "f08c47fec0942fa0"
+
+  - domain: "google.com"
+    publisher_id: "pub-5407249785989200"
+    relationship: "DIRECT"
+    certification_id: "f08c47fec0942fa0"
+
+  - domain: "google.com"
+    publisher_id: "pub-3961173026050537"
+    relationship: "DIRECT"
+    certification_id: "f08c47fec0942fa0"
+
+  - domain: "google.com"
+    publisher_id: "pub-4257586289753883"
+    relationship: "DIRECT"
+    certification_id: "f08c47fec0942fa0"
