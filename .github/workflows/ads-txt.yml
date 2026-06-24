@@ -1,0 +1,10 @@
+- name: Buat dan Aktivasi ads.txt (Jika Belum Ada)
+      if: env.ads_exists == 'false'
+      run: |
+        cat << 'EOF' > ads.txt
+        google.com, pub-6718454554209533, DIRECT, f08c47fec0942fa0
+        google.com, pub-5407249785989200, DIRECT, f08c47fec0942fa0
+        google.com, pub-3961173026050537, DIRECT, f08c47fec0942fa0
+        google.com, pub-4257586289753883, DIRECT, f08c47fec0942fa0
+        EOF
+        echo "File ads.txt dengan multi-ads berhasil dibuat dan diaktivasi."
