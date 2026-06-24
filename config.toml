@@ -1,0 +1,25 @@
+# Alhikmah Project Configuration
+
+[site]
+title = "Alhikmah"
+baseURL = "https://alhikmah.my.id/"
+languageCode = "id-id"
+theme = "alhikmah-theme"
+
+[repository]
+provider = "GitHub"
+url = "https://github.com/alhikmah-my-id/alhikmah-my-id.github.io.git"
+branch = "main"
+
+[author]
+name = "Alhikmah Team"
+email = "admin@alhikmah.my.id"
+
+[settings]
+enable_scraper = true
+max_links_extracted = 15
+cache_expiry_hours = 24
+
+[languages.id]
+languageName = "Bahasa Indonesia"
+weight = 1
