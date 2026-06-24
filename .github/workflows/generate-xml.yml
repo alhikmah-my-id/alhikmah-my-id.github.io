@@ -1,0 +1,30 @@
+name: Auto Generate sitemap.xml
+
+on:
+  push:
+    branches:
+      - main # Jalankan otomatis jika ada update/push kode di branch main (sesuaikan nama branch Anda)
+  workflow_dispatch: # Tombol manual di tab Actions GitHub
+
+jobs:
+  build-sitemap:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Run Sitemap Generator Script
+      run: node build-xml-sitemap.js
+
+    - name: Commit and Push sitemap.xml
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add sitemap.xml
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Bot: Otomatis generate sitemap.xml [skip ci]" && git push)
