@@ -1,0 +1,30 @@
+name: Generate HTML Sitemap Automatically
+
+on:
+  push:
+    paths:
+      - 'sitemap.xml' # Trigger jalan hanya jika sitemap.xml berubah
+  workflow_dispatch: # Memungkinkan Anda menjalankan manual dari tab Actions GitHub
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-size: '20'
+
+    - name: Generate Sitemap HTML
+      run: node generate-sitemap.js
+
+    - name: Commit and Push if Changes Exist
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add sitemap.html
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Bot: Otomatis memperbarui sitemap.html [skip ci]" && git push)
