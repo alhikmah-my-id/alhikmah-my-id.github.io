@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://alhikmah.my.id/images.jpg" alt="Al-Hikmah Logo" width="200px">
 </p>
-Selamat datang di repositori resmi untuk **[alhikmah.my.id](https://alhikmah.my.id/)**. Proyek ini didekasikan untuk menyediakan berbagai perkakas digital, layanan keagamaan Islam, serta utilitas produktivitas berbasis web yang responsif dan mudah diakses oleh masyarakat luas, khususnya lingkungan pesantren.
+Selamat datang di repositori resmi untuk alhikmah.my.id url https://alhikmah.my.id/ . Proyek ini didekasikan untuk menyediakan berbagai perkakas digital, layanan keagamaan Islam, serta utilitas produktivitas berbasis web yang responsif dan mudah diakses oleh masyarakat luas, khususnya lingkungan pesantren.
 
 🔗 **Repository:** [alhikmah-my-id.github.io](https://github.com/alhikmah-my-id/alhikmah-my-id.github.io.git)  
 🌐 **Live Website:** [https://alhikmah.my.id](https://alhikmah.my.id/)
