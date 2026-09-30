@@ -24,8 +24,8 @@ CATEGORIES = [
 TOTAL_FILES_PER_DIR = 30
 
 def generate_html_content(category, post_num):
-    title = f"Artikel Utama {category.replace('-', ' ').title()} #{post_num} - Alhikmah.my.id"
-    canonical_url = f"https://alhikmah.my.id/{category}/post{post_num}.html"
+    title = f"Artikel Utama {category.replace('-', ' ').title()} #{post_num} - alhikmah-my-id.github.io"
+    canonical_url = f"https://alhikmah-my-id.github.io/{category}/post{post_num}.html"
     prev_link = f"post{post_num-1}.html" if post_num > 1 else "#"
     next_link = f"post{post_num+1}.html" if post_num < TOTAL_FILES_PER_DIR else "#"
 
@@ -38,31 +38,31 @@ def generate_html_content(category, post_num):
     <link rel="icon" type="image/png" href="https://blogger.googleusercontent.com/img/a/AVvXsEiW2Sfw5ogSKhZbFiB-VdNXwmZoMGLTGPgx5ZYrTY8859clBvRGxgx-Dwc3i03YiUs1WiiL84uTSAlZ8civ17IWTI5Emt2vXmpuT-yRTzf4620rY_4Ib_vmUEGFfLXjzMiCfmQoWUg1mmj5hQu1IpD1CYguF9GocJ81MhsQTuPgt79-I8uOaPyGT0Qzs00=s200">
     <link rel="canonical" href="{canonical_url}" />
     <meta content='QT96Rd0InOuqkb4s1Wu5BlgGD_pCNOy8CsCtveF1zEA' name='google-site-verification'/>
-    <meta content='Alhikmah.my.id adalah situs Islam yang menyajikan informasi terkini tentang pendidikan, sejarah, budaya, sosial, serta tokoh-tokoh penting dalam kehidupan masyarakat dan bernegara.' name='description'/>
+    <meta content='alhikmah-my-id.github.io adalah situs Islam yang menyajikan informasi terkini tentang pendidikan, sejarah, budaya, sosial, serta tokoh-tokoh penting dalam kehidupan masyarakat dan bernegara.' name='description'/>
     <meta content='Islam, Pendidikan, Sejarah, Sosial, Budaya, Tokoh Islam, Kehidupan Masyarakat, Bernegara, Islam Terpercaya' name='keywords'/>
-    <meta content='Alhikmah.my.id' name='author'/>
-    <meta content='Alhikmah.my.id' name='copyright'/>
+    <meta content='alhikmah-my-id.github.io' name='author'/>
+    <meta content='alhikmah-my-id.github.io' name='copyright'/>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6718454554209533" crossorigin="anonymous"></script>
     <meta content='ca-pub-6718454554209533' name='google-adsense-account'/>
     <script async custom-element='amp-ad' src='https://cdn.ampproject.org/v0/amp-ad-0.1.js'></script>
-    <link href='https://alhikmah.my.id/images.jpg' rel='icon' type='image/png'/>
+    <link href='https://alhikmah-my-id.github.io/images.jpg' rel='icon' type='image/png'/>
     
     <meta property="og:type" content="article">
     <meta property="og:url" content="{canonical_url}">
     <meta property="og:title" content="{title}">
-    <meta property="og:image" content="https://alhikmah.my.id/images.jpg">
-    <meta property="og:image:secure_url" content="https://alhikmah.my.id/images.jpg">
+    <meta property="og:image" content="https://alhikmah-my-id.github.io/images.jpg">
+    <meta property="og:image:secure_url" content="https://alhikmah-my-id.github.io/images.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{canonical_url}">
-    <meta name="twitter:image" content="https://alhikmah.my.id/images.jpg">
+    <meta name="twitter:image" content="https://alhikmah-my-id.github.io/images.jpg">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200"
     crossorigin="anonymous"></script>
-    <link rel="icon" type="image/jpeg" href="https://alhikmah.my.id/images.jpg">
-    <link rel="apple-touch-icon" href="https://alhikmah.my.id/images.jpg">
+    <link rel="icon" type="image/jpeg" href="https://alhikmah-my-id.github.io/images.jpg">
+    <link rel="apple-touch-icon" href="https://alhikmah-my-id.github.io/images.jpg">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -73,11 +73,11 @@ def generate_html_content(category, post_num):
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "{title}",
-      "image": ["https://alhikmah.my.id/images.jpg"],
+      "image": ["https://alhikmah-my-id.github.io/images.jpg"],
       "datePublished": "2026-01-01T08:00:00+07:00",
       "author": {{
         "@type": "Organization",
-        "name": "Alhikmah.my.id"
+        "name": "alhikmah-my-id.github.io"
       }}
     }}
     </script>
@@ -87,25 +87,25 @@ def generate_html_content(category, post_num):
     <!-- Header & Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="https://www.alhikmah.my.id/">
-                <img src="https://alhikmah.my.id/images.jpg" alt="alhikmah" width="38" height="38" class="me-2 rounded-circle">
-                <span class="fs-4 fw-bold text-warning">ALHIKMAH.MY.ID</span>
+            <a class="navbar-brand d-flex align-items-center" href="https://www.alhikmah-my-id.github.io/">
+                <img src="https://alhikmah-my-id.github.io/images.jpg" alt="alhikmah" width="38" height="38" class="me-2 rounded-circle">
+                <span class="fs-4 fw-bold text-warning">alhikmah-my-id.github.io</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="https://alhikmah.my.id/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://alhikmah-my-id.github.io/">Home</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Kategori</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="https://alhikmah.my.id/sejarah-islam/">Sejarah Islam</a></li>
-                            <li><a class="dropdown-item" href="https://alhikmah.my.id/fiqih-4-mazhab/">Fiqih 4 Mazhab</a></li>
-                            <li><a class="dropdown-item" href="https://alhikmah.my.id/biografi-ulama/">Biografi Ulama</a></li>
+                            <li><a class="dropdown-item" href="https://alhikmah-my-id.github.io/sejarah-islam/">Sejarah Islam</a></li>
+                            <li><a class="dropdown-item" href="https://alhikmah-my-id.github.io/fiqih-4-mazhab/">Fiqih 4 Mazhab</a></li>
+                            <li><a class="dropdown-item" href="https://alhikmah-my-id.github.io/biografi-ulama/">Biografi Ulama</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="https://alhikmah.my.id/kontak.html">Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://alhikmah-my-id.github.io/kontak.html">Kontak</a></li>
                 </ul>
             </div>
         </div>
@@ -121,7 +121,7 @@ def generate_html_content(category, post_num):
                     <p class="text-muted">Dipublikasikan pada 2026 | Oleh Tim Redaksi Alhikmah</p>
                     
                     <div class="mb-4 text-center">
-                        <img src="https://alhikmah.my.id/images.jpg" alt="Ilustrasi {title}" class="img-fluid rounded shadow" style="max-height: 400px; width: 100%; object-fit: cover;">
+                        <img src="https://alhikmah-my-id.github.io/images.jpg" alt="Ilustrasi {title}" class="img-fluid rounded shadow" style="max-height: 400px; width: 100%; object-fit: cover;">
                         <small class="text-muted d-block mt-1">Ilustrasi: Dokumentasi Alhikmah (Alt: alhikmah)</small>
                     </div>
 
@@ -139,7 +139,7 @@ def generate_html_content(category, post_num):
                     <!-- Article Body (Simulasi Panjang 3000 Kata) -->
                     <section id="pendahuluan">
                         <h2 class="h4 fw-bold text-primary">1. Pendahuluan</h2>
-                        <p>Selamat datang di portal Islam terpercaya Alhikmah.my.id. Pada artikel kali ini dalam kategori <strong>{category}</strong>, kita akan mengupas tuntas berbagai aspek mendalam yang berkaitan dengan khazanah keislaman, pendidikan, sosial, serta sejarah peradaban Islam.</p>
+                        <p>Selamat datang di portal Islam terpercaya alhikmah-my-id.github.io. Pada artikel kali ini dalam kategori <strong>{category}</strong>, kita akan mengupas tuntas berbagai aspek mendalam yang berkaitan dengan khazanah keislaman, pendidikan, sosial, serta sejarah peradaban Islam.</p>
                         <p>Konten ini disusun secara komprehensif guna memenuhi kebutuhan literasi digital umat Islam yang mendambakan informasi akurat, berlandaskan dalil yang shahih serta rujukan para ulama salafus shalih.</p>
                     </section>
 
@@ -159,13 +159,13 @@ def generate_html_content(category, post_num):
                     <div class="my-4 p-3 border rounded bg-white">
                         <h5 class="fw-bold">Rujukan & Bacaan Terkait</h5>
                         <ul class="small mb-0">
-                            <li>Internal Link 1: <a href="https://alhikmah.my.id/sejarah-islam/post1.html">Sejarah Peradaban Islam Klasik</a></li>
-                            <li>Internal Link 2: <a href="https://alhikmah.my.id/fiqih-4-mazhab/post1.html">Panduan Fiqih Ibadah Harian</a></li>
-                            <li>Internal Link 3: <a href="https://alhikmah.my.id/biografi-ulama/post1.html">Kisah Teladan Para Ulama Nusantara</a></li>
-                            <li>Internal Link 4: <a href="https://alhikmah.my.id/alquran-player/">Murotal & Al-Qur'an Digital 30 Juz</a></li>
-                            <li>Internal Link 5: <a href="https://alhikmah.my.id/jadwal-sholat/">Jadwal Sholat Real-Time Otomatis</a></li>
-                            <li>Internal Link 6: <a href="https://alhikmah.my.id/kalender/">Kalender Hijriah & Jawa Terpadu</a></li>
-                            <li>Internal Link 7: <a href="https://alhikmah.my.id/kontak.html">Layanan Konsultasi & Kontak Kami</a></li>
+                            <li>Internal Link 1: <a href="https://alhikmah-my-id.github.io/sejarah-islam/post1.html">Sejarah Peradaban Islam Klasik</a></li>
+                            <li>Internal Link 2: <a href="https://alhikmah-my-id.github.io/fiqih-4-mazhab/post1.html">Panduan Fiqih Ibadah Harian</a></li>
+                            <li>Internal Link 3: <a href="https://alhikmah-my-id.github.io/biografi-ulama/post1.html">Kisah Teladan Para Ulama Nusantara</a></li>
+                            <li>Internal Link 4: <a href="https://alhikmah-my-id.github.io/alquran-player/">Murotal & Al-Qur'an Digital 30 Juz</a></li>
+                            <li>Internal Link 5: <a href="https://alhikmah-my-id.github.io/jadwal-sholat/">Jadwal Sholat Real-Time Otomatis</a></li>
+                            <li>Internal Link 6: <a href="https://alhikmah-my-id.github.io/kalender/">Kalender Hijriah & Jawa Terpadu</a></li>
+                            <li>Internal Link 7: <a href="https://alhikmah-my-id.github.io/kontak.html">Layanan Konsultasi & Kontak Kami</a></li>
                         </ul>
                         <hr>
                         <ul class="small mb-0 text-muted">
@@ -214,10 +214,10 @@ def generate_html_content(category, post_num):
                     <div class="card-body">
                         <h5 class="card-title fw-bold">Navigasi Fitur Utama</h5>
                         <ul class="list-unstyled mb-0">
-                            <li>✍️ <a href="https://alhikmah.my.id/arabic/pesantren/nd/">Arabic Pegon</a></li>
-                            <li>📅 <a href="https://alhikmah.my.id/kalender/">Kalender Multi-Konversi</a></li>
-                            <li>⏱️ <a href="https://alhikmah.my.id/jadwal-sholat/">Timer Jadwal Sholat</a></li>
-                            <li>🎧 <a href="https://alhikmah.my.id/alquran-player/v6.html">Murotal 30 Juz</a></li>
+                            <li>✍️ <a href="https://alhikmah-my-id.github.io/arabic/pesantren/nd/">Arabic Pegon</a></li>
+                            <li>📅 <a href="https://alhikmah-my-id.github.io/kalender/">Kalender Multi-Konversi</a></li>
+                            <li>⏱️ <a href="https://alhikmah-my-id.github.io/jadwal-sholat/">Timer Jadwal Sholat</a></li>
+                            <li>🎧 <a href="https://alhikmah-my-id.github.io/alquran-player/v6.html">Murotal 30 Juz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -237,31 +237,31 @@ def generate_html_content(category, post_num):
         <div class="container">
             <div class="row align-items-center g-4">
                 <div class="col-md-5 text-center text-md-start">
-                    <a class="d-inline-flex align-items-center text-decoration-none mb-2" href="https://www.alhikmah.my.id/">
-                        <span class="text-warning fs-5 fw-bold">ALHIKMAH.MY.ID</span>
+                    <a class="d-inline-flex align-items-center text-decoration-none mb-2" href="https://www.alhikmah-my-id.github.io/">
+                        <span class="text-warning fs-5 fw-bold">alhikmah-my-id.github.io</span>
                     </a>
                     <p class="text-muted small mb-0">Portal Islam terpercaya untuk pendidikan, sejarah, sosial, dan budaya.</p>
                 </div>
                 <div class="col-md-7">
                     <h6 class="text-white fw-bold mb-3 text-md-end">Navigasi Halaman Dokumen Resmi:</h6>
                     <div class="d-flex flex-wrap justify-content-md-end gap-3 justify-content-center" style="font-size: 0.9rem;">
-                        <a class="text-decoration-none text-light" href="https://alhikmah.my.id/about-us.html" target="_blank">About Us</a>
+                        <a class="text-decoration-none text-light" href="https://alhikmah-my-id.github.io/about-us.html" target="_blank">About Us</a>
                         <span class="text-muted">|</span>
-                        <a class="text-decoration-none text-light" href="https://alhikmah.my.id/kontak.html">Kontak Kami</a>
+                        <a class="text-decoration-none text-light" href="https://alhikmah-my-id.github.io/kontak.html">Kontak Kami</a>
                         <span class="text-muted">|</span>
-                        <a class="text-decoration-none text-light" href="https://alhikmah.my.id/privacy.html" target="_blank">Privacy Policy</a>
+                        <a class="text-decoration-none text-light" href="https://alhikmah-my-id.github.io/privacy.html" target="_blank">Privacy Policy</a>
                         <span class="text-muted">|</span>
-                        <a class="text-decoration-none text-light" href="https://alhikmah.my.id/disclaimers.html" target="_blank">Disclaimers</a>
+                        <a class="text-decoration-none text-light" href="https://alhikmah-my-id.github.io/disclaimers.html" target="_blank">Disclaimers</a>
                         <span class="text-muted">|</span>
-                        <a class="text-decoration-none text-light" href="https://alhikmah.my.id/sitemap.html" target="_blank">Sitemap</a>
+                        <a class="text-decoration-none text-light" href="https://alhikmah-my-id.github.io/sitemap.html" target="_blank">Sitemap</a>
                         <span class="text-muted">|</span>
-                        <a class="text-decoration-none text-light" href="https://alhikmah.my.id/terms.html" target="_blank">Terms & Conditions</a>
+                        <a class="text-decoration-none text-light" href="https://alhikmah-my-id.github.io/terms.html" target="_blank">Terms & Conditions</a>
                     </div>
                 </div>
             </div>
             <hr class="border-secondary border-opacity-25 my-4">
             <div class="text-center text-muted small">
-                &copy; 2026 ALHIKMAH.MY.ID. All Rights Reserved. Powered by awgroupchannel.
+                &copy; 2026 alhikmah-my-id.github.io. All Rights Reserved. Powered by awgroupchannel.
             </div>
         </div>
     </footer>
@@ -275,7 +275,7 @@ def generate_html_content(category, post_num):
 
 def main():
     print("Memulai pembuatan direktori dan file otomatis...")
-    sitemap_urls = ["https://alhikmah.my.id/"]
+    sitemap_urls = ["https://alhikmah-my-id.github.io/"]
     
     for cat in CATEGORIES:
         os.makedirs(cat, exist_ok=True)
@@ -287,7 +287,7 @@ def main():
             with open(filepath, "w", encoding="utf-8") as f:
                 f.write(content)
             
-            sitemap_urls.append(f"https://alhikmah.my.id/{cat}/{filename}")
+            sitemap_urls.append(f"https://alhikmah-my-id.github.io/{cat}/{filename}")
         print(f"-> Selesai membuat 30 file di dalam direktori: /{cat}/")
 
     # Generate sitemap.xml otomatis
