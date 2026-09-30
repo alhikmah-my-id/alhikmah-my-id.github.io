@@ -1,0 +1,15 @@
+{
+    "name": "Alhikmah.my.id - Portal Islam Terpercaya",
+    "short_name": "Alhikmah",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#198754",
+    "icons": [
+        {
+            "src": "https://alhikmah.my.id/images.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg"
+        }
+    ]
+}
