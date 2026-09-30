@@ -1,0 +1,25 @@
+{
+  "site_name": "ALHIKMAH.MY.ID",
+  "base_url": "https://alhikmah.my.id",
+  "author": "Tim Redaksi Alhikmah",
+  "total_files_per_category": 30,
+  "categories": [
+    "biografi-ulama", "kisah-hikmah", "kisah-sejarah", "info", "kisah-birrul-walidain",
+    "kisah-hidayah-islam", "kisah-kaum-durhaka", "kisah-masa-depan", "kisah-nabi-dan-rasul", "kisah-nabi-muhammad",
+    "kisah-nyata", "kisah-orang-shalih", "kisah-pilihan", "kisah-sahabat-nabi", "kisah-tabiin",
+    "kisah-tak-nyata", "kisah-umat-terdahulu", "sejarah-islam", "nusantara", "news",
+    "laporan-produksi", "merchandise-yufid", "mutiara-faidah", "sejarah", "teladan-muslimah",
+    "books", "aplikasi", "download", "macro-economy", "explainers",
+    "manufacturing", "property", "health", "education", "lifestyle",
+    "hospitality", "tech-media", "smes", "luxury", "whos-who",
+    "international", "local-resources", "politics", "culture", "science",
+    "public-policy", "business-news", "sports", "arts", "celebrities",
+    "automotive", "commentary", "interview", "fiqih-4-mazhab", "kamus-pintar-irob",
+    "kamus-tashrif", "simulator-waris", "simulator-zakat", "asisten-kesehatan-mental",
+    "mesin-pencari-hadits", "penyederhana-teks-arab", "perencana-haji", "browser-modesti",
+    "mesin-logika-komparatif", "peta-sejarah-ar", "perpustakaan-digital", "alat-personalisasi-dakwah",
+    "verifikator-fakta", "jurnal-iman", "penasihat-parenting", "pelatih-kebiasaan",
+    "auditor-kepatuhan-syariah", "qibla-direction", "prayer-times", "hijri-calendar",
+    "zakat-calculator", "salah-tracker", "mosque-finder"
+  ]
+}
