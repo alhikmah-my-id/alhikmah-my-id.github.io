@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://alhikmah.my.id/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://alhikmah.my.id/images.jpg</image:loc>
+      <image:title>ALHIKMAH - Portal Islam Terpercaya</image:title>
+    </image:image>
+  </url>
+  <url><loc>https://alhikmah.my.id/kategori/aplikasi</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/kisah-hikmah</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/kitab-buku</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/pendidikan</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/sholawat</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/khutbah</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/kisah-dan-tokoh</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/informasi</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/vidio</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/adhan</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/iqro</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/tafsir-web</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/perpustakaan</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/arabic-pegon</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/arabic-calligraphy</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/kalender</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/timer</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/murotal-30-juz</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/alquran-digital</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/weboffice</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/kategori/coreldraw-arabic</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alhikmah.my.id/pages/about</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://alhikmah.my.id/pages/kontak</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+</urlset>

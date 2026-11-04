@@ -1,0 +1,38 @@
+# ALHIKMAH — Cloudflare Pages redirect rules
+# Format: [from] [to] [status]
+
+# Canonical domain enforcement (permanent)
+https://www.alhikmah.my.id/*  https://alhikmah.my.id/:splat  301
+https://al-hikmah.pages.dev/*  https://alhikmah.my.id/:splat  301
+
+# Legacy / short URLs → canonical pages (permanent)
+/adzkar            /kategori/adhan            301
+/adzkar/*          /kategori/adhan            301
+/quran             /kategori/alquran-digital  301
+/quran/*           /kategori/alquran-digital  301
+/taklim            /kategori/pendidikan       301
+/taklim/*          /kategori/pendidikan       301
+/hadist            /kategori/kitab-buku       301
+/hadist/*          /kategori/kitab-buku       301
+/sholawat          /kategori/sholawat         301
+/sholawat/*        /kategori/sholawat         301
+/arabic            /kategori/arabic-pegon     301
+/arabic/*          /kategori/arabic-pegon     301
+
+# Legal pages (permanent)
+/about             /pages/about               301
+/kontak            /pages/kontak              301
+/privacy           /pages/privacy             301
+/disclaimers       /pages/disclaimers         301
+/terms             /pages/terms               301
+/sitemap           /sitemap.xml               301
+
+# Article slug shortcuts (permanent)
+/artikel/:slug     /artikel/:slug             200
+/read/:slug        /artikel/:slug             301
+
+# API passthrough (proxy to backend if hosted separately)
+/api/*             https://api.alhikmah.my.id/api/:splat  200
+
+# SPA fallback — must be LAST
+/*                 /index.html                200
