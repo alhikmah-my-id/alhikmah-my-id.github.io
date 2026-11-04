@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="emerald_950">#022c22</color>
+    <color name="emerald_900">#064e3b</color>
+    <color name="emerald_700">#047857</color>
+    <color name="emerald_600">#059669</color>
+    <color name="emerald_500">#10b981</color>
+    <color name="teal_900">#134e4a</color>
+    <color name="slate_950">#020617</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

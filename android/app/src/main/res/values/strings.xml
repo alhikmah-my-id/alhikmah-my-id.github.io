@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ALHIKMAH</string>
+    <string name="app_tagline">Portal Islam Terpercaya</string>
+    <string name="tappx_app_key">pub-65263-android-0300</string>
+    <string name="site_url">https://alhikmah.my.id</string>
+    <string name="loading">Memuat…</string>
+    <string name="no_internet">Tidak ada koneksi internet</string>
+    <string name="retry">Coba Lagi</string>
+</resources>

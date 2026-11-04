@@ -1,1 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.AlHikmah" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/emerald_600</item>
+        <item name="colorPrimaryDark">@color/emerald_900</item>
+        <item name="colorAccent">@color/emerald_500</item>
+        <item name="android:statusBarColor">@color/emerald_950</item>
+        <item name="android:navigationBarColor">@color/emerald_950</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    </style>
 
+    <style name="Theme.AlHikmah.Splash" parent="Theme.AlHikmah">
+        <item name="android:windowBackground">@color/emerald_950</item>
+    </style>
+</resources>
