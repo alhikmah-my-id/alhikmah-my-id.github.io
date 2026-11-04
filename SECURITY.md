@@ -1,21 +1,66 @@
-# Security Policy
+# Kebijakan Keamanan ALHIKMAH
 
-## Supported Versions
+## 🔒 Versi yang Didukung
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+| Versi | Didukung |
+|-------|----------|
+| 1.0.x | ✅ Ya |
+| < 1.0 | ❌ Tidak |
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+## 🚨 Melaporkan Kerentanan
 
-## Reporting a Vulnerability
+Jika Anda menemukan kerentanan keamanan, **JANGAN** buka issue publik. Sebaliknya, kirim laporan ke:
 
-Use this section to tell people how to report a vulnerability.
+**Email:** security@alhikmah.my.id
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+### Informasi yang Perlu Disertakan
+
+- Deskripsi kerentanan
+- Langkah reproduksi
+- Dampak potensial
+- Saran perbaikan (jika ada)
+- Informasi kontak Anda
+
+### Waktu Respons
+
+| Tahap | Waktu |
+|-------|-------|
+| Konfirmasi penerimaan | 48 jam |
+| Analisis awal | 5 hari kerja |
+| Perbaikan | 30 hari kerja |
+| Disclosure publik | Setelah perbaikan |
+
+## 🛡️ Praktik Keamanan
+
+### Web
+- HTTPS wajib (HSTS enabled)
+- Content Security Policy (CSP)
+- CORS dengan whitelist origin
+- Input validation & sanitization
+- Rate limiting pada API
+
+### Android
+- Network Security Config (HTTPS only)
+- ProGuard/R8 obfuscation
+- Signed APK/AAB
+- No cleartext traffic
+
+### iOS
+- App Transport Security (ATS)
+- Code signing
+- Keychain untuk data sensitif
+- No insecure HTTP
+
+### Data
+- Tidak menyimpan data pribadi tanpa consent
+- Enkripsi data sensitif
+- Regular security audit
+- Dependency vulnerability scanning
+
+## 🙏 Penghargaan
+
+Kami berterima kasih kepada peneliti keamanan yang telah membantu menjaga keamanan ALHIKMAH. Nama Anda akan dicantumkan di sini (dengan izin Anda).
+
+---
+
+Design By ADMIN ALHIKMAH | Copyright 2025 All Application International Islamic

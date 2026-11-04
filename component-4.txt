@@ -1,0 +1,4 @@
+
+**Konfigurasi:**
+
+Edit `ROTATE_MS` di `iklan.js` untuk mengubah interval rotasi:

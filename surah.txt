@@ -1,0 +1,91 @@
+import 'package:flutter/foundation.dart';
+
+class Surah {
+  final int number;
+  final String name;
+  final String arabicName;
+  final int ayahCount;
+  const Surah({
+    required this.number,
+    required this.name,
+    required this.arabicName,
+    required this.ayahCount,
+  });
+}
+
+class Qari {
+  final String id;
+  final String name;
+  const Qari({required this.id, required this.name});
+}
+
+class QuranProvider extends ChangeNotifier {
+  static const List<Surah> surahList = [
+    Surah(number: 1, name: 'Al-Fatihah', arabicName: 'الفاتحة', ayahCount: 7),
+    Surah(number: 2, name: 'Al-Baqarah', arabicName: 'البقرة', ayahCount: 286),
+    Surah(number: 3, name: "Ali 'Imran", arabicName: 'آل عمران', ayahCount: 200),
+    Surah(number: 18, name: 'Al-Kahf', arabicName: 'الكهف', ayahCount: 110),
+    Surah(number: 36, name: 'Yasin', arabicName: 'يس', ayahCount: 83),
+    Surah(number: 55, name: 'Ar-Rahman', arabicName: 'الرحمن', ayahCount: 78),
+    Surah(number: 67, name: 'Al-Mulk', arabicName: 'الملك', ayahCount: 30),
+    Surah(number: 112, name: 'Al-Ikhlas', arabicName: 'الإخلاص', ayahCount: 4),
+  ];
+
+  static const List<Qari> qariList = [
+    Qari(id: 'ar.alafasy', name: 'Mishary Alafasy'),
+    Qari(id: 'ar.abdulbasitmurattal', name: 'Abdul Basit'),
+    Qari(id: 'ar.husary', name: 'Mahmoud Khalil Al-Husary'),
+    Qari(id: 'ar.minshawi', name: 'Mohamed Al-Minshawi'),
+  ];
+
+  Surah _currentSurah = surahList.first;
+  Qari _currentQari = qariList.first;
+  bool _isPlaying = false;
+  int _currentAyah = 0;
+
+  Surah get currentSurah => _currentSurah;
+  Qari get currentQari => _currentQari;
+  bool get isPlaying => _isPlaying;
+  int get currentAyah => _currentAyah;
+
+  void selectSurah(Surah s) {
+    _currentSurah = s;
+    _currentAyah = 0;
+    _isPlaying = false;
+    notifyListeners();
+  }
+
+  void selectQari(Qari q) {
+    _currentQari = q;
+    notifyListeners();
+  }
+
+  void togglePlay() {
+    _isPlaying = !_isPlaying;
+    notifyListeners();
+  }
+
+  void setAyah(int index) {
+    _currentAyah = index;
+    notifyListeners();
+  }
+
+  void nextAyah() {
+    if (_currentAyah < _currentSurah.ayahCount - 1) {
+      _currentAyah++;
+      notifyListeners();
+    }
+  }
+
+  void prevAyah() {
+    if (_currentAyah > 0) {
+      _currentAyah--;
+      notifyListeners();
+    }
+  }
+
+  String audioUrl() {
+    final padded = _currentAyah.toString().padLeft(3, '0');
+    return 'https://cdn.islamic.network/quran/audio/128/${_currentQari.id}/${_currentSurah.number}$padded.mp3';
+  }
+}

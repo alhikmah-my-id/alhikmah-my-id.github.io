@@ -1,0 +1,442 @@
+import 'package:flutter/material.dart';
+
+import '../../core/constants/app_constants.dart';
+import '../../data/services/api_service.dart';
+
+class ToolsScreen extends StatelessWidget {
+  const ToolsScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+      children: [
+        const Text(
+          'Tools Islami',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: AppConstants.emeraldDark,
+          ),
+        ),
+        const SizedBox(height: 4),
+        const Text(
+          'Kumpulan tools digital untuk kebutuhan ibadah dan dakwah',
+          style: TextStyle(fontSize: 13, color: AppConstants.muted),
+        ),
+        const SizedBox(height: 16),
+        _toolTile(
+          context,
+          icon: Icons.translate,
+          title: 'Konverter Arabic Pegon',
+          subtitle: 'Konversi tulisan latin ke huruf Pegon',
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const _PegonConverterScreen()),
+          ),
+        ),
+        _toolTile(
+          context,
+          icon: Icons.calendar_month,
+          title: 'Kalender Hijriyah',
+          subtitle: 'Konversi tanggal Masehi ↔ Hijriyah',
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const _HijriCalendarScreen()),
+          ),
+        ),
+        _toolTile(
+          context,
+          icon: Icons.timer,
+          title: 'Timer & Stopwatch',
+          subtitle: 'Timer ibadah dan pengingat waktu',
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const _TimerScreen()),
+          ),
+        ),
+        _toolTile(
+          context,
+          icon: Icons.brush,
+          title: 'Arabic Calligraphy',
+          subtitle: '6 gaya kaligrafi Arab',
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const _CalligraphyScreen()),
+          ),
+        ),
+        _toolTile(
+          context,
+          icon: Icons.palette,
+          title: 'CorelDRAW Arabic',
+          subtitle: 'Aset desain siap pakai',
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const _CorelDrawScreen()),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _toolTile(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    required VoidCallback onTap,
+  }) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 12),
+      child: ListTile(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        leading: Container(
+          width: 44,
+          height: 44,
+          decoration: BoxDecoration(
+            color: AppConstants.emerald.withValues(alpha: 0.12),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Icon(icon, color: AppConstants.emeraldDark),
+        ),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
+        subtitle: Text(subtitle, style: const TextStyle(fontSize: 12)),
+        trailing: const Icon(Icons.chevron_right, color: AppConstants.muted),
+        onTap: onTap,
+      ),
+    );
+  }
+}
+
+class _PegonConverterScreen extends StatefulWidget {
+  const _PegonConverterScreen();
+
+  @override
+  State<_PegonConverterScreen> createState() => _PegonConverterScreenState();
+}
+
+class _PegonConverterScreenState extends State<_PegonConverterScreen> {
+  final _controller = TextEditingController();
+  String _output = '';
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  Future<void> _convert() async {
+    final result = await ApiService.instance.convertToPegon(_controller.text);
+    setState(() => _output = result);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Konverter Arabic Pegon')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          TextField(
+            controller: _controller,
+            maxLines: 4,
+            decoration: const InputDecoration(
+              labelText: 'Teks Latin',
+              hintText: 'Ketik teks latin di sini...',
+            ),
+            onChanged: (_) => _convert(),
+          ),
+          const SizedBox(height: 16),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const Text(
+                    'Hasil Pegon',
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    _output.isEmpty ? '...' : _output,
+                    textAlign: TextAlign.right,
+                    textDirection: TextDirection.rtl,
+                    style: const TextStyle(fontSize: 22, height: 1.8),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _HijriCalendarScreen extends StatelessWidget {
+  const _HijriCalendarScreen();
+
+  @override
+  Widget build(BuildContext context) {
+    final now = DateTime.now();
+    const hijriMonths = [
+      'Muharram', 'Safar', 'Rabiul Awal', 'Rabiul Akhir',
+      'Jumadil Awal', 'Jumadil Akhir', 'Rajab', "Sya'ban",
+      'Ramadhan', 'Syawal', "Dzulqa'dah", 'Dzulhijjah',
+    ];
+    final hijriMonth = hijriMonths[(now.month + 5) % 12];
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Kalender Hijriyah')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  const Icon(
+                    Icons.calendar_month,
+                    size: 48,
+                    color: AppConstants.emerald,
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    '${now.day} ${hijriMonth} 1447 H',
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: AppConstants.emeraldDark,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    '${now.day}/${now.month}/${now.year} M',
+                    style: const TextStyle(color: AppConstants.muted),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Bulan Hijriyah',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: AppConstants.emeraldDark,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  ...hijriMonths.asMap().entries.map(
+                        (e) => ListTile(
+                          dense: true,
+                          leading: CircleAvatar(
+                            radius: 14,
+                            backgroundColor: e.value == hijriMonth
+                                ? AppConstants.emerald
+                                : AppConstants.emerald.withValues(alpha: 0.12),
+                            child: Text(
+                              '${e.key + 1}',
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: e.value == hijriMonth
+                                    ? Colors.white
+                                    : AppConstants.emeraldDark,
+                              ),
+                            ),
+                          ),
+                          title: Text(e.value),
+                        ),
+                      ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TimerScreen extends StatefulWidget {
+  const _TimerScreen();
+
+  @override
+  State<_TimerScreen> createState() => _TimerScreenState();
+}
+
+class _TimerScreenState extends State<_TimerScreen> {
+  int _seconds = 300;
+  bool _running = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final m = (_seconds ~/ 60).toString().padLeft(2, '0');
+    final s = (_seconds % 60).toString().padLeft(2, '0');
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Timer & Stopwatch')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '$m:$s',
+              style: const TextStyle(
+                fontSize: 72,
+                fontWeight: FontWeight.bold,
+                color: AppConstants.emeraldDark,
+              ),
+            ),
+            const SizedBox(height: 24),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FilledButton.icon(
+                  onPressed: () => setState(() => _running = !_running),
+                  icon: Icon(_running ? Icons.pause : Icons.play_arrow),
+                  label: Text(_running ? 'Pause' : 'Start'),
+                ),
+                const SizedBox(width: 12),
+                OutlinedButton.icon(
+                  onPressed: () => setState(() {
+                    _running = false;
+                    _seconds = 300;
+                  }),
+                  icon: const Icon(Icons.refresh),
+                  label: const Text('Reset'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+            Wrap(
+              spacing: 8,
+              children: [60, 300, 600, 900]
+                  .map(
+                    (sec) => ActionChip(
+                      label: Text('${sec ~/ 60} menit'),
+                      onPressed: () => setState(() {
+                        _seconds = sec;
+                        _running = false;
+                      }),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _CalligraphyScreen extends StatelessWidget {
+  const _CalligraphyScreen();
+
+  static const _styles = [
+    {'name': 'Naskh', 'desc': "Gaya klasik untuk teks Al-Qur'an"},
+    {'name': 'Tsuluts', 'desc': 'Gaya dekoratif untuk judul'},
+    {'name': 'Diwani', 'desc': 'Gaya resmi kesultanan Ottoman'},
+    {'name': 'Kufi', 'desc': 'Gaya geometris untuk desain modern'},
+    {'name': 'Farisi', 'desc': 'Gaya Persia yang elegan'},
+    {'name': "Riq'ah", 'desc': 'Gaya tulisan tangan sehari-hari'},
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Arabic Calligraphy')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: _styles
+            .map(
+              (s) => Card(
+                margin: const EdgeInsets.only(bottom: 12),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Chip(
+                        label: Text(s['name']!),
+                        backgroundColor: AppConstants.emerald,
+                        labelStyle: const TextStyle(color: Colors.white),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(s['desc']!),
+                      const SizedBox(height: 12),
+                      const Text(
+                        'بسم الله',
+                        textAlign: TextAlign.right,
+                        textDirection: TextDirection.rtl,
+                        style: TextStyle(
+                          fontSize: 32,
+                          color: AppConstants.emeraldDark,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+            .toList(),
+      ),
+    );
+  }
+}
+
+class _CorelDrawScreen extends StatelessWidget {
+  const _CorelDrawScreen();
+
+  static const _assets = [
+    'Bismillah Vector',
+    'Alhamdulillah Vector',
+    'Ramadhan Banner',
+    'Eid Mubarak Template',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('CorelDRAW Arabic')),
+      body: GridView.builder(
+        padding: const EdgeInsets.all(16),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 12,
+          mainAxisSpacing: 12,
+          childAspectRatio: 0.9,
+        ),
+        itemCount: _assets.length,
+        itemBuilder: (context, i) => Card(
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'بسم الله',
+                  style: TextStyle(
+                    fontSize: 22,
+                    color: AppConstants.emeraldDark,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  _assets[i],
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(height: 8),
+                const Icon(Icons.download, color: AppConstants.emerald),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

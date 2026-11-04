@@ -1,0 +1,7 @@
+
+**Query Parameters:**
+- `category` (optional) — Filter berdasarkan kategori
+- `q` (optional) — Pencarian keyword
+- `limit` (optional) — Batas jumlah hasil
+
+**Response:**

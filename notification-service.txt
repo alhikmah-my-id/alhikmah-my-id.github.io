@@ -1,0 +1,71 @@
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
+
+class NotificationService {
+  NotificationService._();
+  static final NotificationService instance = NotificationService._();
+
+  final FlutterLocalNotificationsPlugin _plugin =
+      FlutterLocalNotificationsPlugin();
+
+  static const AndroidNotificationChannel _adhanChannel = AndroidNotificationChannel(
+    'adhan_channel',
+    'Adhan Notifications',
+    description: 'Notifikasi waktu sholat dan adzan',
+    importance: Importance.high,
+  );
+
+  Future<void> initialize() async {
+    tz.initializeTimeZones();
+
+    const androidInit = AndroidInitializationSettings('@mipmap/ic_launcher');
+    const iosInit = DarwinInitializationSettings(
+      requestAlertPermission: true,
+      requestBadgePermission: true,
+      requestSoundPermission: true,
+    );
+
+    await _plugin.initialize(
+      const InitializationSettings(android: androidInit, iOS: iosInit),
+    );
+
+    await _plugin
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.createNotificationChannel(_adhanChannel);
+  }
+
+  Future<void> scheduleAdhan({
+    required int id,
+    required String prayerName,
+    required DateTime time,
+  }) async {
+    final scheduled = tz.TZDateTime.from(time, tz.local);
+    if (scheduled.isBefore(tz.TZDateTime.now(tz.local))) return;
+
+    await _plugin.zonedSchedule(
+      id,
+      'Waktu $prayerName',
+      'Telah masuk waktu sholat $prayerName',
+      scheduled,
+      NotificationDetails(
+        android: AndroidNotificationDetails(
+          _adhanChannel.id,
+          _adhanChannel.name,
+          channelDescription: _adhanChannel.description,
+          importance: Importance.high,
+          priority: Priority.high,
+          playSound: true,
+        ),
+        iOS: const DarwinNotificationDetails(
+          presentAlert: true,
+          presentSound: true,
+        ),
+      ),
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+    );
+  }
+
+  Future<void> cancelAll() => _plugin.cancelAll();
+}

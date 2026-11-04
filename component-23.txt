@@ -1,0 +1,34 @@
+
+---
+
+## 🤝 Kontribusi
+
+Kami menyambut kontribusi dari siapa pun. Berikut langkah-langkahnya:
+
+1. Fork repository ini
+2. Buat branch fitur (`git checkout -b feature/FiturBaru`)
+3. Commit perubahan (`git commit -m 'Menambah FiturBaru'`)
+4. Push ke branch (`git push origin feature/FiturBaru`)
+5. Buat Pull Request
+
+### Panduan Kontribusi
+
+- Gunakan bahasa Indonesia untuk komentar dan dokumentasi
+- Ikuti konvensi kode yang sudah ada
+- Sertakan test jika memungkinkan
+- Update dokumentasi jika diperlukan
+- Pastikan konten Islami sesuai dengan Al-Qur'an dan Sunnah
+
+### Code of Conduct
+
+Semua kontributor wajib mematuhi:
+- Menghormati sesama kontributor
+- Menjaga adab Islami dalam berkomunikasi
+- Tidak menyebarkan konten yang bertentangan dengan syariat
+- Menjaga autentisitas sumber referensi
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dilisensikan di bawah **MIT License** — lihat file [LICENSE](./LICENSE) untuk detail lengkap.

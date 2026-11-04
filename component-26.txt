@@ -1,0 +1,47 @@
+
+## 🎨 Standar Kode
+
+### TypeScript / React
+- Gunakan **functional components** dengan hooks
+- Type semua props dengan interface/type
+- Gunakan `cn()` dari `@/lib/utils` untuk conditional classes
+- Hindari `any` — gunakan `unknown` jika perlu
+
+### Python
+- Ikuti **PEP 8**
+- Gunakan **type hints**
+- Docstring untuk semua fungsi publik
+- Maksimal 100 karakter per baris
+
+### CSS / Tailwind
+- Gunakan utility classes Tailwind
+- Hindari arbitrary values (`w-[100px]`)
+- Gunakan design tokens dari theme
+
+## 🕌 Adab Kontribusi
+
+Sebagai platform Islami, kami mengharapkan semua kontributor untuk:
+
+1. **Menjaga adab** dalam berkomunikasi
+2. **Menghormati** sesama kontributor
+3. **Tidak menyebarkan** konten yang bertentangan dengan syariat
+4. **Menjaga autentisitas** sumber referensi
+5. **Menyertakan dalil** untuk konten Islami
+6. **Menghindari** plagiarisme
+
+## ✅ Checklist Pull Request
+
+- [ ] Kode mengikuti standar proyek
+- [ ] Sudah di-test secara lokal
+- [ ] Dokumentasi diperbarui jika perlu
+- [ ] Tidak ada konflik dengan branch `main`
+- [ ] Commit message mengikuti konvensi
+- [ ] Konten Islami sesuai Al-Qur'an & Sunnah
+
+## 📜 Lisensi Kontribusi
+
+Dengan berkontribusi, Anda menyetujui bahwa kontribusi Anda akan dilisensikan di bawah **MIT License** (untuk kode) dan **CC BY-SA 4.0** (untuk konten).
+
+---
+
+Design By ADMIN ALHIKMAH | Copyright 2025 All Application International Islamic

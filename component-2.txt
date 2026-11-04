@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:provider/provider.dart';
+
+import 'app.dart';
+import 'core/constants/app_constants.dart';
+import 'core/theme/app_theme.dart';
+import 'data/models/article_model.dart';
+import 'data/models/bookmark_model.dart';
+import 'data/providers/article_provider.dart';
+import 'data/providers/bookmark_provider.dart';
+import 'data/providers/prayer_provider.dart';
+import 'data/providers/quran_provider.dart';
+import 'data/providers/theme_provider.dart';
+import 'data/services/notification_service.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
+      systemNavigationBarColor: AppConstants.emeraldDark,
+      systemNavigationBarIconBrightness: Brightness.light,
+    ),
+  );
+
+  await Hive.initFlutter();
+  Hive.registerAdapter(ArticleModelAdapter());
+  Hive.registerAdapter(BookmarkModelAdapter());
+
+  await Hive.openBox<ArticleModel>(AppConstants.articlesBox);
+  await Hive.openBox<BookmarkModel>(AppConstants.bookmarksBox);
+  await Hive.openBox(AppConstants.settingsBox);
+
+  await NotificationService.instance.initialize();
+
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => ArticleProvider()),
+        ChangeNotifierProvider(create: (_) => BookmarkProvider()),
+        ChangeNotifierProvider(create: (_) => PrayerProvider()),
+        ChangeNotifierProvider(create: (_) => QuranProvider()),
+      ],
+      child: const AlHikmahApp(),
+    ),
+  );
+}

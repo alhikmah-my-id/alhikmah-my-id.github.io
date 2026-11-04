@@ -1,0 +1,285 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/constants/app_constants.dart';
+import '../../data/models/article_model.dart';
+import '../../data/providers/article_provider.dart';
+import '../widgets/article_card.dart';
+import '../widgets/quick_menu.dart';
+import '../widgets/tappx_banner.dart';
+import 'article_detail_screen.dart';
+import 'bookmark_screen.dart';
+import 'prayer_screen.dart';
+import 'quran_screen.dart';
+import 'tools_screen.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _navIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<ArticleProvider>().load();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(
+                AppConstants.logoUrl,
+                width: 32,
+                height: 32,
+                errorBuilder: (_, __, ___) =>
+                    const Icon(Icons.menu_book, size: 28),
+              ),
+            ),
+            const SizedBox(width: 10),
+            const Text('ALHIKMAH'),
+          ],
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () => _showSearch(context),
+          ),
+        ],
+      ),
+      body: IndexedStack(
+        index: _navIndex,
+        children: const [
+          _HomeFeed(),
+          QuranScreen(),
+          PrayerScreen(),
+          ToolsScreen(),
+          BookmarkScreen(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _navIndex,
+        onTap: (i) => setState(() => _navIndex = i),
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.menu_book), label: "Qur'an"),
+          BottomNavigationBarItem(icon: Icon(Icons.access_time), label: 'Sholat'),
+          BottomNavigationBarItem(icon: Icon(Icons.build), label: 'Tools'),
+          BottomNavigationBarItem(icon: Icon(Icons.bookmark), label: 'Simpan'),
+        ],
+      ),
+    );
+  }
+
+  void _showSearch(BuildContext context) {
+    showSearch(
+      context: context,
+      delegate: _ArticleSearchDelegate(context.read<ArticleProvider>()),
+    );
+  }
+}
+
+class _HomeFeed extends StatelessWidget {
+  const _HomeFeed();
+
+  @override
+  Widget build(BuildContext context) {
+    final provider = context.watch<ArticleProvider>();
+
+    return RefreshIndicator(
+      color: AppConstants.emerald,
+      onRefresh: () => provider.refresh(),
+      child: ListView(
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+        children: [
+          const QuickMenu(),
+          const SizedBox(height: 16),
+          const TappxBanner(),
+          const SizedBox(height: 20),
+          _categoryChips(context, provider),
+          const SizedBox(height: 16),
+          _buildBody(context, provider),
+        ],
+      ),
+    );
+  }
+
+  Widget _categoryChips(BuildContext context, ArticleProvider provider) {
+    const categories = [
+      'Home',
+      'Kisah Hikmah',
+      'Pendidikan',
+      'Sholawat',
+      'Tafsir Web',
+      'Arabic Pegon',
+    ];
+    return SizedBox(
+      height: 40,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: categories.length,
+        separatorBuilder: (_, __) => const SizedBox(width: 8),
+        itemBuilder: (context, i) {
+          final c = categories[i];
+          final selected = c == provider.selectedCategory;
+          return ChoiceChip(
+            label: Text(c),
+            selected: selected,
+            onSelected: (_) => provider.setCategory(c),
+            selectedColor: AppConstants.emerald,
+            labelStyle: TextStyle(
+              color: selected ? Colors.white : AppConstants.ink,
+              fontWeight: FontWeight.w600,
+            ),
+            backgroundColor: Colors.white,
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildBody(BuildContext context, ArticleProvider provider) {
+    switch (provider.state) {
+      case LoadState.loading:
+      case LoadState.idle:
+        return const Padding(
+          padding: EdgeInsets.symmetric(vertical: 48),
+          child: Center(child: CircularProgressIndicator()),
+        );
+      case LoadState.error:
+        return _errorState(context, provider);
+      case LoadState.loaded:
+        if (provider.articles.isEmpty) return _emptyState();
+        return Column(
+          children: provider.articles
+              .map(
+                (a) => Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: ArticleCard(
+                    article: a,
+                    onTap: () => _openArticle(context, a),
+                  ),
+                ),
+              )
+              .toList(),
+        );
+    }
+  }
+
+  void _openArticle(BuildContext context, ArticleModel a) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => ArticleDetailScreen(article: a)),
+    );
+  }
+
+  Widget _errorState(BuildContext context, ArticleProvider provider) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          children: [
+            const Icon(Icons.cloud_off, size: 42, color: AppConstants.emerald),
+            const SizedBox(height: 12),
+            const Text(
+              'Koneksi bermasalah',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              provider.error ?? 'Terjadi kesalahan',
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: AppConstants.muted, fontSize: 13),
+            ),
+            const SizedBox(height: 16),
+            FilledButton(
+              onPressed: () => provider.refresh(),
+              child: const Text('Coba Lagi'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _emptyState() {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          children: const [
+            Icon(Icons.inbox, size: 42, color: AppConstants.muted),
+            SizedBox(height: 12),
+            Text(
+              'Belum ada artikel pada kategori ini',
+              style: TextStyle(color: AppConstants.muted),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ArticleSearchDelegate extends SearchDelegate<String> {
+  final ArticleProvider provider;
+  _ArticleSearchDelegate(this.provider);
+
+  @override
+  List<Widget> buildActions(BuildContext context) => [
+        IconButton(
+          icon: const Icon(Icons.clear),
+          onPressed: () => query = '',
+        ),
+      ];
+
+  @override
+  Widget buildLeading(BuildContext context) => IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () => close(context, ''),
+      );
+
+  @override
+  Widget buildResults(BuildContext context) {
+    provider.setQuery(query);
+    return _results(context);
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) => _results(context);
+
+  Widget _results(BuildContext context) {
+    final items = provider.articles
+        .where((a) => a.title.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    if (items.isEmpty) {
+      return const Center(child: Text('Tidak ada hasil'));
+    }
+    return ListView.builder(
+      itemCount: items.length,
+      itemBuilder: (context, i) => ListTile(
+        leading: const Icon(Icons.article, color: AppConstants.emerald),
+        title: Text(items[i].title),
+        subtitle: Text(items[i].category),
+        onTap: () {
+          close(context, items[i].slug);
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => ArticleDetailScreen(article: items[i]),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}

@@ -1,0 +1,11 @@
+description: ALHIKMAH Flutter DevTools configuration
+extensions:
+  - provider
+  - riverpod
+  - network
+  - performance
+  - memory
+settings:
+  theme: dark
+  enableNetworkInspector: true
+  enablePerformanceOverlay: false

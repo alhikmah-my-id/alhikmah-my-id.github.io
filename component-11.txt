@@ -1,0 +1,8 @@
+
+---
+
+## 🔌 API Documentation
+
+Base URL: `https://alhikmah.my.id/api`
+
+### Health Check

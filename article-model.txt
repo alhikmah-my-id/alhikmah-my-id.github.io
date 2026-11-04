@@ -1,0 +1,83 @@
+import 'package:hive/hive.dart';
+
+part 'article_model.g.dart';
+
+@HiveType(typeId: 0)
+class ArticleModel extends HiveObject {
+  @HiveField(0)
+  final int id;
+
+  @HiveField(1)
+  final String slug;
+
+  @HiveField(2)
+  final String title;
+
+  @HiveField(3)
+  final String category;
+
+  @HiveField(4)
+  final String excerpt;
+
+  @HiveField(5)
+  final String author;
+
+  @HiveField(6)
+  final String date;
+
+  @HiveField(7)
+  final String readTime;
+
+  @HiveField(8)
+  final int views;
+
+  @HiveField(9)
+  final String? content;
+
+  @HiveField(10)
+  final String? imageUrl;
+
+  ArticleModel({
+    required this.id,
+    required this.slug,
+    required this.title,
+    required this.category,
+    required this.excerpt,
+    required this.author,
+    required this.date,
+    required this.readTime,
+    required this.views,
+    this.content,
+    this.imageUrl,
+  });
+
+  factory ArticleModel.fromJson(Map<String, dynamic> json) {
+    return ArticleModel(
+      id: json['id'] as int? ?? 0,
+      slug: json['slug'] as String? ?? '',
+      title: json['title'] as String? ?? '',
+      category: json['category'] as String? ?? 'Informasi',
+      excerpt: json['excerpt'] as String? ?? '',
+      author: json['author'] as String? ?? 'ADMIN ALHIKMAH',
+      date: json['date'] as String? ?? '',
+      readTime: json['readTime'] as String? ?? '5 menit',
+      views: json['views'] as int? ?? 0,
+      content: json['content'] as String?,
+      imageUrl: json['imageUrl'] as String?,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'slug': slug,
+        'title': title,
+        'category': category,
+        'excerpt': excerpt,
+        'author': author,
+        'date': date,
+        'readTime': readTime,
+        'views': views,
+        'content': content,
+        'imageUrl': imageUrl,
+      };
+}

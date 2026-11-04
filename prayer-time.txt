@@ -1,0 +1,100 @@
+import 'package:flutter/foundation.dart';
+import 'package:geolocator/geolocator.dart';
+
+import '../../core/constants/app_constants.dart';
+
+class PrayerTime {
+  final String name;
+  final DateTime time;
+  const PrayerTime({required this.name, required this.time});
+}
+
+class PrayerProvider extends ChangeNotifier {
+  List<PrayerTime> _times = const [];
+  String _city = 'Semarang';
+  double _latitude = -6.9932;
+  double _longitude = 110.4203;
+  double _qiblaAngle = 295.0;
+
+  List<PrayerTime> get times => _times;
+  String get city => _city;
+  double get latitude => _latitude;
+  double get longitude => _longitude;
+  double get qiblaAngle => _qiblaAngle;
+
+  PrayerTime? get nextPrayer {
+    final now = DateTime.now();
+    for (final t in _times) {
+      if (t.time.isAfter(now)) return t;
+    }
+    return _times.isEmpty ? null : _times.first;
+  }
+
+  Future<void> loadLocation() async {
+    try {
+      final permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        await Geolocator.requestPermission();
+      }
+      final pos = await Geolocator.getCurrentPosition(
+        locationSettings: const LocationSettings(
+          accuracy: LocationAccuracy.medium,
+        ),
+      );
+      _latitude = pos.latitude;
+      _longitude = pos.longitude;
+      _qiblaAngle = _computeQibla(pos.latitude, pos.longitude);
+      _computeTimes();
+      notifyListeners();
+    } catch (_) {
+      _computeTimes();
+      notifyListeners();
+    }
+  }
+
+  double _computeQibla(double lat, double lng) {
+    const kaabaLat = 21.4225;
+    const kaabaLng = 39.8262;
+    final dLng = (kaabaLng - lng) * 3.141592653589793 / 180;
+    final lat1 = lat * 3.141592653589793 / 180;
+    final lat2 = kaabaLat * 3.141592653589793 / 180;
+    final y = (dLng).abs();
+    final x = (lat2 - lat1).abs();
+    final angle = (y.atan2(x)) * 180 / 3.141592653589793;
+    return (90 + angle).clamp(0, 360);
+  }
+
+  void _computeTimes() {
+    final now = DateTime.now();
+    final base = DateTime(now.year, now.month, now.day);
+    _times = [
+      PrayerTime(name: 'Subuh', time: base.add(const Duration(hours: 4, minutes: 15))),
+      PrayerTime(name: 'Dzuhur', time: base.add(const Duration(hours: 11, minutes: 50))),
+      PrayerTime(name: 'Ashar', time: base.add(const Duration(hours: 15, minutes: 10))),
+      PrayerTime(name: 'Maghrib', time: base.add(const Duration(hours: 18, minutes: 2))),
+      PrayerTime(name: 'Isya', time: base.add(const Duration(hours: 19, minutes: 15))),
+    ];
+  }
+
+  Future<void> setCity(String city, double lat, double lng) async {
+    _city = city;
+    _latitude = lat;
+    _longitude = lng;
+    _qiblaAngle = _computeQibla(lat, lng);
+    _computeTimes();
+    notifyListeners();
+  }
+
+  static const List<Map<String, dynamic>> cities = [
+    {'name': 'Semarang', 'lat': -6.9932, 'lng': 110.4203},
+    {'name': 'Jakarta', 'lat': -6.2088, 'lng': 106.8456},
+    {'name': 'Surabaya', 'lat': -7.2575, 'lng': 112.7521},
+    {'name': 'Bandung', 'lat': -6.9175, 'lng': 107.6191},
+    {'name': 'Yogyakarta', 'lat': -7.7956, 'lng': 110.3695},
+    {'name': 'Medan', 'lat': 3.5952, 'lng': 98.6722},
+    {'name': 'Makassar', 'lat': -5.1477, 'lng': 119.4327},
+    {'name': 'Mekkah', 'lat': 21.4225, 'lng': 39.8262},
+  ];
+
+  static const List<String> _unused = AppConstants.quickMenu;
+}

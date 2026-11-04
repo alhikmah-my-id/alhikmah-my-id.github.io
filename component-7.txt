@@ -1,0 +1,60 @@
+
+---
+
+## ⚠️ Catatan Penting
+
+### Jangan Letakkan di public/
+- ❌ File `.env` atau secrets
+- ❌ Source code TypeScript/React (gunakan `src/`)
+- ❌ File konfigurasi server
+- ❌ Database files
+- ❌ Backup files
+
+### Cache Control
+- File di `public/` di-cache dengan `maxAge: 1h`
+- Untuk file yang sering berubah, tambahkan query string: `/iklan.js?v=2`
+- Untuk ads.txt/app-ads.txt, **jangan** cache lama (verifikasi butuh fresh)
+
+### Security
+- Semua file di `public/` dapat diakses publik
+- Jangan letakkan informasi sensitif
+- Validasi input pada API endpoints
+- Gunakan HTTPS untuk semua request
+
+---
+
+## 📊 Checklist Verifikasi
+
+Setelah deploy, verifikasi:
+
+- [ ] `https://alhikmah.my.id/ads.txt` → 200 OK, `text/plain`
+- [ ] `https://alhikmah.my.id/app-ads.txt` → 200 OK, `text/plain`
+- [ ] `https://alhikmah.my.id/manifest.json` → 200 OK, `application/json`
+- [ ] `https://alhikmah.my.id/iklan.js` → 200 OK, `application/javascript`
+- [ ] `https://alhikmah.my.id/robots.txt` → 200 OK, `text/plain`
+- [ ] `https://alhikmah.my.id/sitemap.xml` → 200 OK, `application/xml`
+- [ ] `https://alhikmah.my.id/images.jpg` → 200 OK, `image/jpeg`
+- [ ] Chrome DevTools → Application → Manifest → no errors
+- [ ] Lighthouse PWA audit → pass
+- [ ] Google Play Console → app-ads.txt verified
+- [ ] App Store Connect → app-ads.txt verified
+
+---
+
+## 🔗 Referensi
+
+- [IAB ads.txt Specification](https://iabtechlab.com/ads-txt/)
+- [Google ads.txt Guide](https://support.google.com/admanager/answer/7441288)
+- [PWA Manifest Spec](https://www.w3.org/TR/appmanifest/)
+- [Tappx Documentation](https://www.tappx.com/en/docs/)
+- [Schema.org FAQ](https://schema.org/FAQPage)
+
+---
+
+<div align="center">
+
+**Design By ADMIN ALHIKMAH | Copyright 2025 All Application International Islamic**
+
+*ALHIKMAH.MY.ID — Portal Islam terpercaya untuk pendidikan, sejarah, sosial, dan budaya.*
+
+</div>

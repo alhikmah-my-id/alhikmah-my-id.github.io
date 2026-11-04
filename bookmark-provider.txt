@@ -1,0 +1,52 @@
+import 'package:flutter/foundation.dart';
+import 'package:hive/hive.dart';
+
+import '../../core/constants/app_constants.dart';
+import '../models/bookmark_model.dart';
+
+class BookmarkProvider extends ChangeNotifier {
+  late final Box<BookmarkModel> _box =
+      Hive.box<BookmarkModel>(AppConstants.bookmarksBox);
+
+  List<BookmarkModel> get bookmarks => _box.values.toList()
+    ..sort((a, b) => b.savedAt.compareTo(a.savedAt));
+
+  bool isBookmarked(int articleId) =>
+      _box.values.any((b) => b.articleId == articleId);
+
+  Future<void> toggle(BookmarkModel bookmark) async {
+    final existing = _box.values.firstWhere(
+      (b) => b.articleId == bookmark.articleId,
+      orElse: () => BookmarkModel(
+        articleId: -1,
+        title: '',
+        slug: '',
+        category: '',
+        savedAt: DateTime(1970),
+      ),
+    );
+    if (existing.articleId == bookmark.articleId) {
+      await existing.delete();
+    } else {
+      await _box.add(bookmark);
+    }
+    notifyListeners();
+  }
+
+  Future<void> remove(int articleId) async {
+    final existing = _box.values.firstWhere(
+      (b) => b.articleId == articleId,
+      orElse: () => BookmarkModel(
+        articleId: -1,
+        title: '',
+        slug: '',
+        category: '',
+        savedAt: DateTime(1970),
+      ),
+    );
+    if (existing.articleId == articleId) {
+      await existing.delete();
+      notifyListeners();
+    }
+  }
+}

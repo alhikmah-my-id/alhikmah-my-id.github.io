@@ -1,103 +1,125 @@
-# 🕋 Al-Hikmah Digital Platform
+# ALHIKMAH — Portal Islam Terpercaya
 
-<p align="center">
-  <img src="https://alhikmah.my.id/images.jpg" alt="Al-Hikmah Logo" width="200px">
-</p>
-Selamat datang di repositori resmi untuk alhikmah.my.id url https://alhikmah.my.id/ . Proyek ini didekasikan untuk menyediakan berbagai perkakas digital, layanan keagamaan Islam, serta utilitas produktivitas berbasis web yang responsif dan mudah diakses oleh masyarakat luas, khususnya lingkungan pesantren.
+<div align="center">
 
-🔗 **Repository:** [alhikmah-my-id.github.io](https://github.com/alhikmah-my-id/alhikmah-my-id.github.io.git)  
-🌐 **Live Website:** [https://alhikmah.my.id](https://alhikmah.my.id/)
+![ALHIKMAH Logo](https://alhikmah.my.id/images.jpg)
 
----
+**Portal Islam terpercaya untuk pendidikan, sejarah, sosial, dan budaya.**
 
+[![Website](https://img.shields.io/badge/Website-alhikmah.my.id-065f46?style=for-the-badge)](https://alhikmah.my.id)
+[![License](https://img.shields.io/badge/License-MIT-10b981?style=for-the-badge)](./LICENSE)
+[![Version](https://img.shields.io/badge/Version-1.0.0-0d9488?style=for-the-badge)](./CHANGELOG.md)
+[![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Android%20%7C%20iOS-14b8a6?style=for-the-badge)](#-platform-support)
 
-## 🧭 Navigasi & Fitur Utama
-
-Situs ini menyediakan ekosistem layanan digital terpadu yang dapat diakses langsung melalui tautan berikut:
-
-*   ✍️ **[Arabic Pegon](https://alhikmah.my.id/arabic/pesantren/nd/)** – Sistem penulisan dan konversi aksara Arab Pegon untuk kebutuhan literasi pesantren.
-*   ✒️ **[Arabic Calligraphy Pro](https://alhikmah.my.id/arabic/calligraphy/pro)** – Generator dan editor kaligrafi Arab berbasis vektor (CorelDRAW Style Canvas).
-    *   🎥 *Tonton demo visual:* **[Calligraphy Video Guide](https://alhikmah.my.id/arabic/pesantren/nd/caligraphy/caligraphy.mp4)**
-*   📅 **[Kalender](https://alhikmah.my.id/kalender/)** – Sistem penanggalan multi-konversi (Masehi, Hijriah, dan Jawa).
-*   ⏱️ **[Timer Jadwal Sholat](https://alhikmah.my.id/jadwal-sholat/)** – Pengingat otomatis dan penunjuk waktu salat fardu secara *real-time*.
-*   🎧 **[Murotal 30 Juz](https://alhikmah.my.id/alquran-player/v6.html)** – Pemutar audio Al-Qur'an digital interaktif lengkap 30 Juz.
-*   📖 **[Alqur'an Digital](https://alhikmah.my.id/alquran-player/)** – Mushaf Al-Qur'an digital portable untuk kemudahan membaca di mana saja.
-*   💼 **[WebOffice Suite](https://alhikmah.my.id/WebOffice/)** – Alat produktivitas perkantoran berbasis web terintegrasi.
-*   📚 **[Khazanah Kitab & Teks Referensi](https://alhikmah.my.id/khazanah/)** – Kajian teks, terjemahan, dan panduan keilmuan Islam bersumber dari literatur klasik terpercaya.
-
+</div>
 
 ---
 
-## 🎬 Calligraphy Preview & Tutorial
+## 📖 Daftar Isi
 
-<p align="center">
-  <video src="https://alhikmah.my.id/arabic/pesantren/nd/caligraphy/caligraphy.mp4" width="600" autoplay loop muted playsinline controls></video>
-</p>
-
----
-
-### 📌 Kumpulan Kitab Kuning Lengkap
-Daftar modul digital teks kitab yang tersedia di platform kami:
-
-| | | |
-| --- | --- | --- |
-| 📖 Adabul Alim Wal Muta'alim | 📖 Al-Muwatta Imam Malik | 📖 Al-Hikam Ibnu Athaillah |
-| 📖 Alfiyah Ibnu Malik | 📖 Amtsilah Tashrif | 📖 Aqidatul Awam |
-| 📖 Arbain Nawawi | 📖 Bidayatul Hidayah | 📖 Bulughul Maram |
-| 📖 Fathul Izar | 📖 Fathul Qorib | 📖 Futuhul Ghaib |
-| 📖 Jurumiyah | 📖 Matan Sanusiyah | 📖 Nadhom Imriti |
-| 📖 Nashoihul Ibad | 📖 Qurrotul Uyun | 📖 Riyadhus Shalihin |
-| 📖 Safinatun Najah | 📖 Shahih Muslim | 📖 Shahih Bukhari |
-| 📖 Sirrul Asror | 📖 Tafsir Jalalain | 📖 Ta'lim Muta'alim |
-| 📖 Tuhfatul Athfal | 📖 Uqudulujain | 📖 Washoya |
-| 📖 Adzkar | 📖 Kumpulan Sholawat Lengkap | |
+- [Tentang Proyek](#-tentang-proyek)
+- [Fitur Utama](#-fitur-utama)
+- [Kategori Konten](#-kategori-konten-22-kategori)
+- [Arsitektur Sistem](#-arsitektur-sistem)
+- [Teknologi](#-teknologi)
+- [Instalasi](#-instalasi)
+- [Konfigurasi](#-konfigurasi)
+- [Penggunaan](#-penggunaan)
+- [API Documentation](#-api-documentation)
+- [Monetisasi Tappx](#-monetisasi-tappx)
+- [Platform Support](#-platform-support)
+- [Deployment](#-deployment)
+- [Kontribusi](#-kontribusi)
+- [Lisensi](#-lisensi)
+- [Kontak](#-kontak)
 
 ---
 
-## 🚀 Dukung Proyek Ini
+## 🌙 Tentang Proyek
 
-Jika Anda merasa platform dan alat yang kami sediakan bermanfaat, Anda dapat berkontribusi untuk membantu biaya operasional server dan pengembangan fitur baru melalui metode di bawah ini.
+**ALHIKMAH** adalah platform digital Islam terpercaya yang menyediakan konten berkualitas tinggi untuk pendidikan, sejarah, sosial, dan budaya Islam. Platform ini dibangun dengan arsitektur modern yang mendukung **Web App**, **Android**, dan **iOS** dalam satu ekosistem terintegrasi.
 
-### 🪙 Wallet Ethereum (Crypto)
-Scan QR berikut menggunakan MetaMask, TrustWallet, atau Rainbow untuk mengirim donasi:
+### Visi
 
-![QR Ethereum](https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=ethereum:0xd8519A8b8825Aa0DcC73aAD572f447FAE102fe88)
+Menjadi portal Islam terpercaya yang menyajikan konten autentik berbasis Al-Qur'an dan Sunnah, mudah diakses oleh seluruh umat Muslim di Indonesia dan dunia.
 
-Atau salin alamat dompet resmi kami:  
-`0xd8519A8b8825Aa0DcC73aAD572f447FAE102fe88`  
+### Misi
 
-🔗 [Buka Tracker di Etherscan](https://etherscan.io/address/0xd8519A8b8825Aa0DcC73aAD572f447FAE102fe88)
-
----
-
-### 💳 Langganan Layanan (PayPal)
-
-Pilih paket langganan berkala yang sesuai dengan kebutuhan Anda:  
-
-[![Subscribe via PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JZ8YZT9LM257A)
-
-📌 **Daftar Paket Tersedia:**  
-
-| Nama Paket | Kontribusi | Durasi / Siklus |
-| :--- | :--- | :--- |
-| **Subscribe** | \$5 | Mingguan |
-| **Premium** | \$25 | Bulanan |
-| **Golden** | \$100 | Tahunan |
+1. Menyediakan artikel Islami mendalam berstandar SEO (minimal 3000 kata)
+2. Menghadirkan tools digital Islami yang praktis dan bermanfaat
+3. Menyebarkan konten dakwah melalui media digital modern
+4. Menjaga autentisitas konten berdasarkan sumber-sumber terpercaya
 
 ---
 
-## 📌 Informasi Tambahan
+## ✨ Fitur Utama
 
-<details>
-<summary>💡 FAQ / Cara Donasi (Klik untuk membuka)</summary>
+### 📚 Konten & Artikel
+- **Artikel SEO-Ready** — Minimal 3000 kata dengan struktur heading `<h1>` hingga `<h6>`
+- **Table of Contents (TOC)** interaktif dengan auto-scroll
+- **FAQ Section** dengan skema JSON-LD untuk rich snippets
+- **Conclusion** terstruktur di setiap artikel
+- **Media Share** — WhatsApp, Facebook, Twitter/X, Telegram, Salin Link
+- **Navigasi Next/Prev Article** untuk pengalaman membaca berkelanjutan
 
-1. **Bagaimana cara melakukan scan QR Code Ethereum?**  
-   Buka aplikasi Crypto Wallet Anda (seperti MetaMask atau TrustWallet), pilih opsi *Scan*, arahkan kamera ke kode QR di atas, lalu masukkan nominal yang ingin Anda kirimkan.  
+### 🛠️ Tools Digital Islami
+- **Konverter Arabic Pegon** — Transliterasi Latin ↔ Arab Pegon
+- **Kalender Hijriyah** — Konversi Masehi ↔ Hijriyah
+- **Timer & Stopwatch** — Untuk ibadah dan kajian
+- **Arabic Calligraphy** — 6 gaya kaligrafi (Naskh, Tsuluts, Diwani, Kufi, Farisi, Riq'ah)
+- **CorelDRAW Arabic Assets** — Template desain siap pakai
+- **Murotal 30 Juz** — Audio player Al-Qur'an lengkap
+- **Al-Qur'an Digital** — 114 surah dengan terjemahan
 
-2. **Bagaimana cara berlangganan via PayPal?**  
-   Klik tombol gambar PayPal di atas, Anda akan diarahkan ke laman pembayaran resmi. Pilih paket kontribusi yang Anda inginkan, lalu konfirmasi pembayaran.  
+### 📱 Multi-Platform
+- **Web App** — React 19 + TypeScript + Tailwind CSS
+- **Android** — Kotlin & Java (min SDK 21)
+- **iOS** — Swift (min iOS 14)
+- **PWA** — Installable, offline-ready, manifest.json
 
+### 🎯 Sidebar Widgets
+- **News Update** — Berita terkini
+- **Popular Post** — Artikel terpopuler berdasarkan views
+- **Archive** — Arsip berdasarkan bulan/tahun
 
-</details>
+### 💰 Monetisasi
+- **Tappx Ad Rotation** — 6 App Key dengan rotasi otomatis
+- **ads.txt & app-ads.txt** — Konfigurasi lengkap untuk verifikasi
+- **Multi-format Ads** — Banner, Interstitial, Native
 
 ---
+
+## 📂 Kategori Konten (22 Kategori)
+
+| # | Kategori | Deskripsi |
+|---|----------|-----------|
+| 1 | **Home** | Halaman utama & feed |
+| 2 | **Aplikasi** | Aplikasi Islami & tools |
+| 3 | **Kisah Hikmah** | Kisah inspiratif penuh hikmah |
+| 4 | **Kitab/Buku** | Koleksi kitab klasik & modern |
+| 5 | **Pendidikan** | Materi pembelajaran Islam |
+| 6 | **Sholawat** | Kumpulan sholawat & artinya |
+| 7 | **Khutbah** | Teks khutbah Jumat & Idul |
+| 8 | **Kisah dan Tokoh** | Biografi ulama & tokoh Islam |
+| 9 | **Informasi** | Berita & informasi terkini |
+| 10 | **Vidio** | Video kajian & dokumenter |
+| 11 | **Adhan** | Jadwal adzan & kompas kiblat |
+| 12 | **Iqro'** | Pembelajaran Iqro' 1-6 |
+| 13 | **Tafsir Web** | Tafsir Al-Qur'an digital |
+| 14 | **Perpustakaan** | Perpustakaan digital Islam |
+| 15 | **Arabic Pegon** | Konverter & pembelajaran Pegon |
+| 16 | **Arabic Calligraphy** | Seni kaligrafi Arab |
+| 17 | **Kalender** | Kalender Hijriyah & Masehi |
+| 18 | **Timer** | Timer ibadah & kajian |
+| 19 | **Murotal 30 Juz** | Audio murotal lengkap |
+| 20 | **Alqur'an Digital** | Al-Qur'an 114 surah |
+| 21 | **WebOffice** | Office tools berbasis web |
+| 22 | **CorelDRAW Arabic** | Aset desain CorelDRAW |
+
+### Menu Navigasi Cepat
+
+`ADZKAR` · `AL-QUR'AN` · `TAKLIM` · `HADIST` · `SHOLAWAT` · `ARABIC`
+
+---
+
+## 🏗️ Arsitektur Sistem

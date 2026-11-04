@@ -1,0 +1,16 @@
+
+## 📝 Konvensi Commit
+
+Kami menggunakan [Conventional Commits](https://www.conventionalcommits.org/):
+
+| Prefix | Kegunaan |
+|--------|----------|
+| `feat:` | Fitur baru |
+| `fix:` | Perbaikan bug |
+| `docs:` | Perubahan dokumentasi |
+| `style:` | Formatting (tidak mengubah kode) |
+| `refactor:` | Refactoring kode |
+| `test:` | Menambah/memperbaiki test |
+| `chore:` | Maintenance |
+
+**Contoh:**

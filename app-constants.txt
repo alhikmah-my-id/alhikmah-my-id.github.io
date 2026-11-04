@@ -1,0 +1,98 @@
+import 'package:flutter/material.dart';
+
+class AppConstants {
+  AppConstants._();
+
+  // Branding
+  static const String appName = 'ALHIKMAH';
+  static const String domain = 'alhikmah.my.id';
+  static const String siteUrl = 'https://alhikmah.my.id';
+  static const String apiBase = 'https://alhikmah.my.id/api';
+  static const String logoUrl = 'https://alhikmah.my.id/images.jpg';
+  static const String copyright =
+      'Design By ADMIN ALHIKMAH | Copyright 2025 All Application International Islamic';
+
+  // Colors
+  static const Color emerald = Color(0xFF047857);
+  static const Color emeraldDark = Color(0xFF064E3B);
+  static const Color emeraldLight = Color(0xFF10B981);
+  static const Color teal = Color(0xFF0D9488);
+  static const Color amber = Color(0xFFD97706);
+  static const Color rose = Color(0xFFE11D48);
+  static const Color surface = Color(0xFFF1F5F9);
+  static const Color ink = Color(0xFF0F172A);
+  static const Color muted = Color(0xFF64748B);
+
+  // Hive boxes
+  static const String articlesBox = 'articles_box';
+  static const String bookmarksBox = 'bookmarks_box';
+  static const String settingsBox = 'settings_box';
+
+  // Categories (22)
+  static const List<String> categories = [
+    'Home',
+    'Aplikasi',
+    'Kisah Hikmah',
+    'Kitab/Buku',
+    'Pendidikan',
+    'Sholawat',
+    'Khutbah',
+    'Kisah dan Tokoh',
+    'Informasi',
+    'Vidio',
+    'Adhan',
+    "Iqro'",
+    'Tafsir Web',
+    'Perpustakaan',
+    'Arabic Pegon',
+    'Arabic Calligraphy',
+    'Kalender',
+    'Timer',
+    'Murotal 30 Juz',
+    "Alqur'an Digital",
+    'WebOffice',
+    'CorelDRAW Arabic',
+  ];
+
+  // Quick menu
+  static const List<String> quickMenu = [
+    'ADZKAR',
+    "AL-QUR'AN",
+    'TAKLIM',
+    'HADIST',
+    'SHOLAWAT',
+    'ARABIC',
+  ];
+
+  // Tappx App Keys
+  static const List<String> tappxKeys = [
+    'pub-65263-android-0300',
+    'pub-57747-android-0996',
+    'pub-60567-android-4416',
+    'pub-65262-android-8892',
+    'pub-79956-android-6297',
+    'pub-79955-android-5582',
+  ];
+
+  // AdMob test IDs (replace with real IDs in production)
+  static const String bannerAdUnitId = 'ca-app-pub-6718454554209533/7205994686';
+  static const String interstitialAdUnitId = 'ca-app-pub-6718454554209533/1234567890';
+  static const String nativeAdUnitId = 'ca-app-pub-6718454554209533/0987654321';
+
+  // Legal links
+  static const List<Map<String, String>> legalLinks = [
+    {'label': 'About Us', 'url': '$siteUrl/pages/about'},
+    {'label': 'Kontak Kami', 'url': '$siteUrl/pages/kontak'},
+    {'label': 'Privacy Policy', 'url': '$siteUrl/pages/privacy'},
+    {'label': 'Disclaimers', 'url': '$siteUrl/pages/disclaimers'},
+    {'label': 'Sitemap', 'url': '$siteUrl/sitemap.xml'},
+    {'label': 'Terms & Conditions', 'url': '$siteUrl/pages/terms'},
+  ];
+
+  // Storage keys
+  static const String keyThemeMode = 'theme_mode';
+  static const String keyLastSync = 'last_sync';
+  static const String keyCity = 'city';
+  static const String keyLatitude = 'latitude';
+  static const String keyLongitude = 'longitude';
+}

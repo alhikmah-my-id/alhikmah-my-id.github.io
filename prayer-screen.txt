@@ -1,0 +1,233 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/constants/app_constants.dart';
+import '../../data/providers/prayer_provider.dart';
+
+class PrayerScreen extends StatefulWidget {
+  const PrayerScreen({super.key});
+
+  @override
+  State<PrayerScreen> createState() => _PrayerScreenState();
+}
+
+class _PrayerScreenState extends State<PrayerScreen> {
+  Timer? _timer;
+  DateTime _now = DateTime.now();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<PrayerProvider>().loadLocation();
+    });
+    _timer = Timer.periodic(const Duration(seconds: 1), (_) {
+      if (mounted) setState(() => _now = DateTime.now());
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final prayer = context.watch<PrayerProvider>();
+    final next = prayer.nextPrayer;
+
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+      children: [
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    const Icon(Icons.location_on, color: AppConstants.emerald),
+                    const SizedBox(width: 6),
+                    Text(
+                      prayer.city,
+                      style: const TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                    const Spacer(),
+                    Text(
+                      '${_now.hour.toString().padLeft(2, '0')}:${_now.minute.toString().padLeft(2, '0')}:${_now.second.toString().padLeft(2, '0')}',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: AppConstants.emeraldDark,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                if (next != null)
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [AppConstants.emeraldDark, AppConstants.teal],
+                      ),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          'MENUJU ${next.name.toUpperCase()}',
+                          style: const TextStyle(
+                            color: Color(0xFFD1FAE5),
+                            fontSize: 11,
+                            letterSpacing: 1.5,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          '${next.time.hour.toString().padLeft(2, '0')}:${next.time.minute.toString().padLeft(2, '0')}',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 32,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Jadwal Sholat Hari Ini',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: AppConstants.emeraldDark,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                ...prayer.times.map(
+                  (t) => Container(
+                    margin: const EdgeInsets.only(bottom: 8),
+                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                    decoration: BoxDecoration(
+                      color: t == next
+                          ? AppConstants.emerald
+                          : AppConstants.emerald.withValues(alpha: 0.06),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.access_time,
+                          size: 18,
+                          color: t == next ? Colors.white : AppConstants.emerald,
+                        ),
+                        const SizedBox(width: 10),
+                        Text(
+                          t.name,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: t == next ? Colors.white : AppConstants.ink,
+                          ),
+                        ),
+                        const Spacer(),
+                        Text(
+                          '${t.time.hour.toString().padLeft(2, '0')}:${t.time.minute.toString().padLeft(2, '0')}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: t == next ? Colors.white : AppConstants.emeraldDark,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                const Text(
+                  'Kompas Kiblat',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: AppConstants.emeraldDark,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Container(
+                  width: 160,
+                  height: 160,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: AppConstants.emerald.withValues(alpha: 0.3),
+                      width: 4,
+                    ),
+                    color: Colors.white,
+                  ),
+                  child: Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(
+                          Icons.navigation,
+                          color: AppConstants.emerald,
+                          size: 32,
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          '${prayer.qiblaAngle.toStringAsFixed(0)}°',
+                          style: const TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: AppConstants.emeraldDark,
+                          ),
+                        ),
+                        const Text(
+                          'Arah Kiblat',
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: AppConstants.muted,
+                            letterSpacing: 1,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                const Text(
+                  "Arahkan perangkat ke Ka'bah untuk akurasi maksimal",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 12, color: AppConstants.muted),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}

@@ -1,0 +1,104 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
+
+import '../../core/constants/app_constants.dart';
+import '../models/article_model.dart';
+
+class ApiService {
+  ApiService._();
+  static final ApiService instance = ApiService._();
+
+  late final Dio _dio = Dio(
+    BaseOptions(
+      baseUrl: AppConstants.apiBase,
+      connectTimeout: const Duration(seconds: 12),
+      receiveTimeout: const Duration(seconds: 15),
+      headers: {'Accept': 'application/json'},
+    ),
+  );
+
+  Future<List<ArticleModel>> fetchArticles({String? category, String? query}) async {
+    try {
+      final res = await _dio.get<Map<String, dynamic>>(
+        '/articles',
+        queryParameters: {
+          if (category != null && category.isNotEmpty) 'category': category,
+          if (query != null && query.isNotEmpty) 'q': query,
+        },
+      );
+      final list = (res.data?['articles'] as List<dynamic>? ?? const []);
+      return list
+          .map((e) => ArticleModel.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } on DioException catch (e) {
+      throw Exception('Gagal memuat artikel: ${e.message}');
+    }
+  }
+
+  Future<ArticleModel?> fetchArticleDetail(String slug) async {
+    try {
+      final res = await _dio.get<Map<String, dynamic>>('/articles/$slug');
+      final data = res.data?['article'] as Map<String, dynamic>?;
+      if (data == null) return null;
+      return ArticleModel.fromJson(data);
+    } on DioException {
+      return null;
+    }
+  }
+
+  Future<List<String>> fetchCategories() async {
+    try {
+      final res = await _dio.get<Map<String, dynamic>>('/categories');
+      final list = (res.data?['categories'] as List<dynamic>? ?? const []);
+      return list.map((e) => e.toString()).toList();
+    } on DioException {
+      return AppConstants.categories;
+    }
+  }
+
+  Future<String> fetchNextAdKey() async {
+    try {
+      final res = await _dio.get<Map<String, dynamic>>('/ads/rotate');
+      return res.data?['appKey'] as String? ?? AppConstants.tappxKeys.first;
+    } on DioException {
+      return AppConstants.tappxKeys.first;
+    }
+  }
+
+  Future<String> convertToPegon(String text) async {
+    try {
+      final res = await _dio.post<Map<String, dynamic>>(
+        '/tools/pegon',
+        data: {'text': text},
+      );
+      return res.data?['output'] as String? ?? '';
+    } on DioException {
+      return _localPegon(text);
+    }
+  }
+
+  String _localPegon(String text) {
+    const map = {
+      'a': 'ا', 'b': 'ب', 'c': 'چ', 'd': 'د', 'e': 'ي', 'f': 'ف', 'g': 'غ',
+      'h': 'ه', 'i': 'ي', 'j': 'ج', 'k': 'ك', 'l': 'ل', 'm': 'م', 'n': 'ن',
+      'o': 'و', 'p': 'ف', 'q': 'ق', 'r': 'ر', 's': 'س', 't': 'ت', 'u': 'و',
+      'v': 'ف', 'w': 'و', 'x': 'كس', 'y': 'ي', 'z': 'ز',
+    };
+    return text.split('').map((c) => map[c.toLowerCase()] ?? c).join();
+  }
+
+  Future<Map<String, dynamic>> fetchHijriDate(DateTime date) async {
+    try {
+      final res = await _dio.get<Map<String, dynamic>>(
+        '/tools/kalender',
+        queryParameters: {'date': date.toIso8601String()},
+      );
+      return res.data ?? const {};
+    } on DioException {
+      return {'gregorian': date.toIso8601String().substring(0, 10)};
+    }
+  }
+
+  String encodeJson(Object value) => jsonEncode(value);
+}

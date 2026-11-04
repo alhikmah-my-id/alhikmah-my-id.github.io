@@ -1,0 +1,63 @@
+
+---
+
+## 💰 Monetisasi Tappx
+
+### App Key Pool
+
+Platform menggunakan **6 App Key** dengan rotasi otomatis:
+
+| # | App Key |
+|---|---------|
+| 1 | `pub-65263-android-0300` |
+| 2 | `pub-57747-android-0996` |
+| 3 | `pub-60567-android-4416` |
+| 4 | `pub-65262-android-8892` |
+| 5 | `pub-79956-android-6297` |
+| 6 | `pub-79955-android-5582` |
+
+### ads.txt & app-ads.txt
+
+File konfigurasi lengkap tersedia di:
+- `public/ads.txt` — untuk web
+- `public/app-ads.txt` — untuk mobile apps
+
+Verifikasi melalui:
+- **Google Play Console** → App content → App ads
+- **App Store Connect** → App Information → App Ads
+
+---
+
+## 📱 Platform Support
+
+### Web
+- ✅ Chrome 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ✅ Edge 90+
+- ✅ PWA installable
+
+### Android
+- ✅ Android 5.0+ (API 21)
+- ✅ Kotlin & Java
+- ✅ Material Design 3
+- ✅ Google Play Store ready
+
+### iOS
+- ✅ iOS 14.0+
+- ✅ Swift 5.9+
+- ✅ SwiftUI & UIKit
+- ✅ App Store ready
+
+---
+
+## 🚢 Deployment
+
+Lihat [DEPLOY.md](./DEPLOY.md) untuk panduan lengkap deployment:
+
+- **VPS** — Ubuntu + Nginx + PM2
+- **Vercel/Netlify** — Frontend hosting
+- **Docker** — Containerized deployment
+- **Railway/Render** — API hosting
+
+### Quick Deploy

@@ -1,0 +1,33 @@
+{
+  "name": "ALHIKMAH - Portal Islam Terpercaya",
+  "short_name": "ALHIKMAH",
+  "description": "Portal Islam terpercaya untuk pendidikan, sejarah, sosial, dan budaya.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#022c22",
+  "theme_color": "#059669",
+  "lang": "id",
+  "dir": "ltr",
+  "categories": ["education", "books", "lifestyle"],
+  "icons": [
+    {
+      "src": "https://alhikmah.my.id/images.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://alhikmah.my.id/images.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Al-Qur'an Digital", "url": "/alquran" },
+    { "name": "Jadwal Adzan", "url": "/adhan" },
+    { "name": "Arabic Pegon", "url": "/arabic-pegon" }
+  ]
+}

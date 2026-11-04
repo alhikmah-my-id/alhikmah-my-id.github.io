@@ -1,0 +1,8 @@
+
+---
+
+## 🤖 robots.txt (Auto-Generated)
+
+**Tujuan:** Memberi tahu crawler search engine halaman mana yang boleh di-index.
+
+**Isi:**

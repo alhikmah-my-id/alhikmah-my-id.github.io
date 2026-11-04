@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+
+import '../../core/constants/app_constants.dart';
+
+class ThemeProvider extends ChangeNotifier {
+  late final Box _box = Hive.box(AppConstants.settingsBox);
+  ThemeMode _themeMode = ThemeMode.light;
+
+  ThemeProvider() {
+    final saved = _box.get(AppConstants.keyThemeMode) as String?;
+    if (saved == 'dark') _themeMode = ThemeMode.dark;
+    if (saved == 'system') _themeMode = ThemeMode.system;
+  }
+
+  ThemeMode get themeMode => _themeMode;
+
+  Future<void> setThemeMode(ThemeMode mode) async {
+    _themeMode = mode;
+    await _box.put(AppConstants.keyThemeMode, mode.name);
+    notifyListeners();
+  }
+
+  Future<void> toggle() async {
+    await setThemeMode(
+      _themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark,
+    );
+  }
+}

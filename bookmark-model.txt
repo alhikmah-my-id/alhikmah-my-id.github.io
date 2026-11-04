@@ -1,0 +1,29 @@
+import 'package:hive/hive.dart';
+
+part 'bookmark_model.g.dart';
+
+@HiveType(typeId: 1)
+class BookmarkModel extends HiveObject {
+  @HiveField(0)
+  final int articleId;
+
+  @HiveField(1)
+  final String title;
+
+  @HiveField(2)
+  final String slug;
+
+  @HiveField(3)
+  final String category;
+
+  @HiveField(4)
+  final DateTime savedAt;
+
+  BookmarkModel({
+    required this.articleId,
+    required this.title,
+    required this.slug,
+    required this.category,
+    required this.savedAt,
+  });
+}

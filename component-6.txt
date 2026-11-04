@@ -1,0 +1,44 @@
+
+**Di-generate oleh:** `server.js` (route `/robots.txt`)
+
+---
+
+## 🗺️ sitemap.xml (Auto-Generated)
+
+**Tujuan:** Daftar semua URL penting untuk indexing search engine.
+
+**Isi:** 22 kategori + homepage dengan `changefreq: weekly` dan `priority: 0.8`.
+
+**Di-generate oleh:** `server.js` (route `/sitemap.xml`)
+
+**Submit ke:**
+- [Google Search Console](https://search.google.com/search-console)
+- [Bing Webmaster Tools](https://www.bing.com/webmasters)
+
+---
+
+## 🖼️ images.jpg
+
+**Tujuan:** Logo & favicon ALHIKMAH.
+
+**URL:** `https://alhikmah.my.id/images.jpg`
+
+**Digunakan di:**
+- `<link rel="icon">` — favicon browser
+- `<link rel="apple-touch-icon">` — icon iOS home screen
+- `manifest.json` → `icons[]` — PWA icon
+- Open Graph `og:image` — preview saat share
+- Twitter Card `twitter:image` — preview di Twitter/X
+
+**Spesifikasi:**
+- Format: JPEG
+- Ukuran: 200x200 (akan di-scale otomatis)
+- Ukuran file: < 100 KB (optimal)
+
+---
+
+## 🔧 Cara Menambah File Baru
+
+1. Letakkan file di `public/`
+2. File otomatis di-serve di `https://alhikmah.my.id/<filename>`
+3. Untuk file dengan content-type khusus, tambahkan route di `server.js`:

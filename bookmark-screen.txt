@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/constants/app_constants.dart';
+import '../../data/providers/bookmark_provider.dart';
+
+class BookmarkScreen extends StatelessWidget {
+  const BookmarkScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final bookmarks = context.watch<BookmarkProvider>();
+
+    if (bookmarks.bookmarks.isEmpty) {
+      return const Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.bookmark_border, size: 56, color: AppConstants.muted),
+            SizedBox(height: 12),
+            Text(
+              'Belum ada artikel tersimpan',
+              style: TextStyle(color: AppConstants.muted),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return ListView.builder(
+      padding: const EdgeInsets.all(16),
+      itemCount: bookmarks.bookmarks.length,
+      itemBuilder: (context, i) {
+        final b = bookmarks.bookmarks[i];
+        return Card(
+          margin: const EdgeInsets.only(bottom: 12),
+          child: ListTile(
+            leading: const Icon(Icons.bookmark, color: AppConstants.emerald),
+            title: Text(b.title),
+            subtitle: Text(b.category),
+            trailing: IconButton(
+              icon: const Icon(Icons.delete_outline),
+              onPressed: () => bookmarks.remove(b.articleId),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}

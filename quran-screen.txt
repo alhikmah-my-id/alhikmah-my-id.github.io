@@ -1,0 +1,133 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/constants/app_constants.dart';
+import '../../data/providers/quran_provider.dart';
+
+class QuranScreen extends StatelessWidget {
+  const QuranScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final quran = context.watch<QuranProvider>();
+
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+      children: [
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Murotal Al-Qur'an Digital",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: AppConstants.emeraldDark,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                DropdownButtonFormField<Surah>(
+                  value: quran.currentSurah,
+                  decoration: const InputDecoration(labelText: 'Pilih Surah'),
+                  items: QuranProvider.surahList
+                      .map((s) => DropdownMenuItem(
+                            value: s,
+                            child: Text('${s.number}. ${s.name} (${s.ayahCount} ayat)'),
+                          ))
+                      .toList(),
+                  onChanged: (s) => s != null ? quran.selectSurah(s) : null,
+                ),
+                const SizedBox(height: 12),
+                DropdownButtonFormField<Qari>(
+                  value: quran.currentQari,
+                  decoration: const InputDecoration(labelText: 'Pilih Qari'),
+                  items: QuranProvider.qariList
+                      .map((q) => DropdownMenuItem(value: q, child: Text(q.name)))
+                      .toList(),
+                  onChanged: (q) => q != null ? quran.selectQari(q) : null,
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.skip_previous),
+                      onPressed: quran.prevAyah,
+                    ),
+                    IconButton(
+                      iconSize: 48,
+                      icon: Icon(
+                        quran.isPlaying
+                            ? Icons.pause_circle_filled
+                            : Icons.play_circle_filled,
+                        color: AppConstants.emerald,
+                      ),
+                      onPressed: quran.togglePlay,
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.skip_next),
+                      onPressed: quran.nextAyah,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Ayat ${quran.currentAyah + 1} dari ${quran.currentSurah.ayahCount}',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(color: AppConstants.muted, fontSize: 12),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Daftar Surah',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: AppConstants.emeraldDark,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                ...QuranProvider.surahList.map(
+                  (s) => ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: AppConstants.emerald.withValues(alpha: 0.12),
+                      child: Text(
+                        '${s.number}',
+                        style: const TextStyle(
+                          color: AppConstants.emeraldDark,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    title: Text(s.name),
+                    subtitle: Text('${s.ayahCount} ayat'),
+                    trailing: Text(
+                      s.arabicName,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        color: AppConstants.emeraldDark,
+                      ),
+                    ),
+                    onTap: () => quran.selectSurah(s),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}

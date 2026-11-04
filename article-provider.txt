@@ -1,0 +1,48 @@
+import 'package:flutter/foundation.dart';
+
+import '../models/article_model.dart';
+import '../services/api_service.dart';
+
+enum LoadState { idle, loading, loaded, error }
+
+class ArticleProvider extends ChangeNotifier {
+  final ApiService _api = ApiService.instance;
+
+  LoadState _state = LoadState.idle;
+  List<ArticleModel> _articles = const [];
+  String _selectedCategory = 'Home';
+  String _query = '';
+  String? _error;
+
+  LoadState get state => _state;
+  List<ArticleModel> get articles => _articles;
+  String get selectedCategory => _selectedCategory;
+  String get query => _query;
+  String? get error => _error;
+
+  Future<void> load({String? category, String? query}) async {
+    if (category != null) _selectedCategory = category;
+    if (query != null) _query = query;
+
+    _state = LoadState.loading;
+    _error = null;
+    notifyListeners();
+
+    try {
+      _articles = await _api.fetchArticles(
+        category: _selectedCategory == 'Home' ? null : _selectedCategory,
+        query: _query.isEmpty ? null : _query,
+      );
+      _state = LoadState.loaded;
+    } catch (e) {
+      _error = e.toString();
+      _state = LoadState.error;
+    }
+    notifyListeners();
+  }
+
+  Future<void> refresh() => load();
+
+  void setCategory(String category) => load(category: category);
+  void setQuery(String q) => load(query: q);
+}

@@ -1,0 +1,160 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../constants/app_constants.dart';
+
+class AppTheme {
+  AppTheme._();
+
+  static ThemeData get light {
+    final base = ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.light,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: AppConstants.emerald,
+        primary: AppConstants.emerald,
+        secondary: AppConstants.teal,
+        tertiary: AppConstants.amber,
+        brightness: Brightness.light,
+      ),
+      scaffoldBackgroundColor: AppConstants.surface,
+    );
+
+    return base.copyWith(
+      textTheme: GoogleFonts.plusJakartaSansTextTheme(base.textTheme).apply(
+        bodyColor: AppConstants.ink,
+        displayColor: AppConstants.ink,
+      ),
+      appBarTheme: AppBarTheme(
+        backgroundColor: AppConstants.emeraldDark,
+        foregroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: false,
+        titleTextStyle: GoogleFonts.plusJakartaSans(
+          fontSize: 18,
+          fontWeight: FontWeight.w700,
+          color: Colors.white,
+          letterSpacing: 1.2,
+        ),
+      ),
+      cardTheme: CardThemeData(
+        color: Colors.white,
+        elevation: 1,
+        shadowColor: AppConstants.emerald.withValues(alpha: 0.15),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+        margin: EdgeInsets.zero,
+      ),
+      chipTheme: base.chipTheme.copyWith(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(999)),
+        side: BorderSide(color: AppConstants.emerald.withValues(alpha: 0.25)),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppConstants.emerald,
+          foregroundColor: Colors.white,
+          elevation: 0,
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          textStyle: GoogleFonts.plusJakartaSans(fontWeight: FontWeight.w600),
+        ),
+      ),
+      filledButtonTheme: FilledButtonThemeData(
+        style: FilledButton.styleFrom(
+          backgroundColor: AppConstants.emerald,
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        ),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          foregroundColor: AppConstants.emerald,
+          side: const BorderSide(color: AppConstants.emerald),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: Colors.white,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: AppConstants.emerald.withValues(alpha: 0.2)),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: AppConstants.emerald.withValues(alpha: 0.2)),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppConstants.emerald, width: 2),
+        ),
+      ),
+      dividerTheme: const DividerThemeData(
+        color: Color(0xFFE2E8F0),
+        thickness: 1,
+        space: 1,
+      ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: Colors.white,
+        selectedItemColor: AppConstants.emerald,
+        unselectedItemColor: AppConstants.muted,
+        type: BottomNavigationBarType.fixed,
+        elevation: 8,
+      ),
+    );
+  }
+
+  static ThemeData get dark {
+    final base = ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.dark,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: AppConstants.emerald,
+        primary: AppConstants.emeraldLight,
+        secondary: AppConstants.teal,
+        tertiary: AppConstants.amber,
+        brightness: Brightness.dark,
+      ),
+      scaffoldBackgroundColor: const Color(0xFF0B1220),
+    );
+
+    return base.copyWith(
+      textTheme: GoogleFonts.plusJakartaSansTextTheme(base.textTheme),
+      appBarTheme: AppBarTheme(
+        backgroundColor: const Color(0xFF0B1220),
+        foregroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: false,
+        titleTextStyle: GoogleFonts.plusJakartaSans(
+          fontSize: 18,
+          fontWeight: FontWeight.w700,
+          color: Colors.white,
+          letterSpacing: 1.2,
+        ),
+      ),
+      cardTheme: CardThemeData(
+        color: const Color(0xFF111C2E),
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+        margin: EdgeInsets.zero,
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: const Color(0xFF111C2E),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: Color(0xFF1E293B)),
+        ),
+      ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: Color(0xFF111C2E),
+        selectedItemColor: AppConstants.emeraldLight,
+        unselectedItemColor: Color(0xFF64748B),
+        type: BottomNavigationBarType.fixed,
+      ),
+    );
+  }
+}

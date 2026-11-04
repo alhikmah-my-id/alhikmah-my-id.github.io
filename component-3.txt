@@ -1,0 +1,8 @@
+
+**Fitur:**
+- Rotasi otomatis setiap 8 detik
+- 6 App Key Tappx dengan round-robin
+- Expose `window.AlHikmahAds.nextKey()` untuk manual rotation
+- Expose `window.AlHikmahAds.pool` untuk akses semua key
+
+**App Key Pool:**

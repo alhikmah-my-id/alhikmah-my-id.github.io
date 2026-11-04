@@ -1,0 +1,11 @@
+name = "al-hikmah"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "dist"
+
+[vars]
+SITE_URL = "https://alhikmah.my.id"
+API_BASE = "https://alhikmah.my.id/api"
+
+[[env.production.vars]]
+SITE_URL = "https://alhikmah.my.id"
+API_BASE = "https://alhikmah.my.id/api"
