@@ -1,21 +1,33 @@
 {
-  "name": "ALHIKMAH.MY.ID",
-  "short_name": "Alhikmah",
-  "description": "Portal Islam terpercaya menyediakan konten pendidikan, sejarah, sosial, dan budaya, Al-Qur'an digital, jadwal sholat, hingga panduan ibadah.",
+  "name": "ALHIKMAH - Portal Islam Terpercaya",
+  "short_name": "ALHIKMAH",
+  "description": "Portal Islam terpercaya untuk pendidikan, sejarah, sosial, dan budaya.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "orientation": "portrait",
+  "background_color": "#064e3b",
+  "theme_color": "#047857",
+  "lang": "id",
+  "dir": "ltr",
+  "categories": ["education", "books", "lifestyle", "news"],
   "icons": [
     {
       "src": "https://alhikmah.my.id/images.jpg",
       "sizes": "192x192",
-      "type": "image/jpeg"
+      "type": "image/jpeg",
+      "purpose": "any maskable"
     },
     {
       "src": "https://alhikmah.my.id/images.jpg",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/jpeg",
+      "purpose": "any maskable"
     }
+  ],
+  "shortcuts": [
+    { "name": "Al-Qur'an Digital", "url": "/quran" },
+    { "name": "Jadwal Adzan", "url": "/adhan" },
+    { "name": "Artikel", "url": "/artikel" }
   ]
 }
