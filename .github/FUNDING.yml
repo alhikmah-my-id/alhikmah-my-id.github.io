@@ -1,10 +1,17 @@
 # These are supported funding model platforms
 
-github: [wahyu9kdl]
+github: [alhikmah-my-id, wahyu9kdl]
+
+custom:
+  - https://github.com/sponsors/alhikmah-my-id
+  - https://github.com/sponsors/wahyu9kdl
+  - https://paypal.me/wahyudi9kdl
+  - https://www.awdev.my.id
+  - https://saweria.co/awdev
+  - https://alhikmah.my.id
+
 tidelift: # Replace with a single Tidelift platform-name/package-name e.g., npm/babel
 community_bridge: # Replace with a single Community Bridge project-name e.g., cloud-foundry
 liberapay: # Replace with a single Liberapay username
 issuehunt: # Replace with a single IssueHunt username
 otechie: # Replace with a single Otechie username
-custom:
-  ["https://paypal.me/wahyudi9kdl","https://www.awdev.my.id","https://saweria.co/awdev",""]
