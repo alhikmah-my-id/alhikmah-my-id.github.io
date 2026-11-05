@@ -4,6 +4,46 @@
 
 ![ALHIKMAH Logo](https://alhikmah.my.id/images.jpg)
 
+# Assalamu’alaikum / Welcome to Al-Hikmah! 👋
+
+Selamat datang di repository resmi **@alhikmah-my-id**! Platform digital yang berfokus pada pengembangan dakwah, pendidikan, dan kebaikan yang berkelanjutan.
+
+🌐 **Website Resmi:**
+* [alhikmah](https://alhikmah.my.id)
+* [alhikmah](https://alhikmah.eu.org)
+* [alhikmah pages](https://alhikmah-my-id.github.io) *(GitHub Pages)*
+
+---
+
+## 🌟 Dukung Gerakan Kami (Sponsors)
+
+Kami memiliki misi besar untuk mengumpulkan **250 monthly sponsors** guna memastikan keberlangsungan dan stabilitas program-program kebaikan kami ke depan. 
+
+Jika Anda ingin berpartisipasi dan menjadi bagian dari perjalanan ini, Anda bisa mendukung kami melalui halaman GitHub Sponsors:
+
+* 💚 **Sponsor alhikmah-my-id:** [github.com/sponsors/alhikmah-my-id](https://github.com/sponsors/alhikmah-my-id)
+* 💡 **Sponsor Maintainer (@wahyu9kdl):** [github.com/sponsors/wahyu9kdl](https://github.com/sponsors/wahyu9kdl)
+
+### 💳 Sponsor Card & Button
+Anda juga bisa langsung mendukung kami melalui widget di bawah ini:
+```
+<iframe src="https://github.com/sponsors/alhikmah-my-id/card" title="Sponsor alhikmah-my-id" height="225" width="600" style="border: 0;"></iframe>
+```
+
+or
+
+```
+<iframe src="https://github.com/sponsors/alhikmah-my-id/button" title="Sponsor alhikmah-my-id" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
+```
+---
+
+## 📊 Target Milestone Sponsor
+* [ ] 🎯 **0 / 250 Monthly Sponsors** (Target Utama)
+
+Mari bersama-sama menebar manfaat yang lebih luas. Jazakumullah khairan katsiran atas dukungan Anda! 🙏
+
+
+
 **Portal Islam terpercaya untuk pendidikan, sejarah, sosial, dan budaya.**
 
 [![Website](https://img.shields.io/badge/Website-alhikmah.my.id-065f46?style=for-the-badge)](https://alhikmah.my.id)
