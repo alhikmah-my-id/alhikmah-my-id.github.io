@@ -2701,6 +2701,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alhikmah.my.id/_includes/disqus.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alhikmah.my.id/izar/</loc>
     <lastmod>2026-11-14</lastmod>
     <priority>0.8</priority>
